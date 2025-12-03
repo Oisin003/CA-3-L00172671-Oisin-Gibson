@@ -1,0 +1,371 @@
+[
+    {
+        "id": 1,
+        "Title": "Harry Potter and the Philosopher's Stone",
+        "ISBN": "9780000010001",
+        "Author": "J. K. Rowling",
+        "Category": "Fantasy",
+        "Price": 10.99,
+        "NumberInStock": 42
+    },
+    {
+        "id": 2,
+        "Title": "Harry Potter and the Chamber of Secrets",
+        "ISBN": "9780000010002",
+        "Author": "J. K. Rowling",
+        "Category": "Fantasy",
+        "Price": 10.99,
+        "NumberInStock": 39
+    },
+    {
+        "id": 3,
+        "Title": "Harry Potter and the Prisoner of Azkaban",
+        "ISBN": "9780000010003",
+        "Author": "J. K. Rowling",
+        "Category": "Fantasy",
+        "Price": 11.49,
+        "NumberInStock": 37
+    },
+    {
+        "id": 4,
+        "Title": "Harry Potter and the Goblet of Fire",
+        "ISBN": "9780000010004",
+        "Author": "J. K. Rowling",
+        "Category": "Fantasy",
+        "Price": 12.99,
+        "NumberInStock": 33
+    },
+    {
+        "id": 5,
+        "Title": "Harry Potter and the Order of the Phoenix",
+        "ISBN": "9780000010005",
+        "Author": "J. K. Rowling",
+        "Category": "Fantasy",
+        "Price": 12.99,
+        "NumberInStock": 28
+    },
+    {
+        "id": 6,
+        "Title": "Harry Potter and the Half-Blood Prince",
+        "ISBN": "9780000010006",
+        "Author": "J. K. Rowling",
+        "Category": "Fantasy",
+        "Price": 11.99,
+        "NumberInStock": 31
+    },
+    {
+        "id": 7,
+        "Title": "Harry Potter and the Deathly Hallows",
+        "ISBN": "9780000010007",
+        "Author": "J. K. Rowling",
+        "Category": "Fantasy",
+        "Price": 13.49,
+        "NumberInStock": 35
+    },
+    {
+        "id": 8,
+        "Title": "A Game of Thrones",
+        "ISBN": "9780000010101",
+        "Author": "George R. R. Martin",
+        "Category": "Fantasy",
+        "Price": 14.99,
+        "NumberInStock": 20
+    },
+    {
+        "id": 9,
+        "Title": "A Clash of Kings",
+        "ISBN": "9780000010102",
+        "Author": "George R. R. Martin",
+        "Category": "Fantasy",
+        "Price": 14.99,
+        "NumberInStock": 18
+    },
+    {
+        "id": 10,
+        "Title": "A Storm of Swords",
+        "ISBN": "9780000010103",
+        "Author": "George R. R. Martin",
+        "Category": "Fantasy",
+        "Price": 15.99,
+        "NumberInStock": 16
+    },
+    {
+        "id": 11,
+        "Title": "A Feast for Crows",
+        "ISBN": "9780000010104",
+        "Author": "George R. R. Martin",
+        "Category": "Fantasy",
+        "Price": 13.99,
+        "NumberInStock": 14
+    },
+    {
+        "id": 12,
+        "Title": "A Dance with Dragons",
+        "ISBN": "9780000010105",
+        "Author": "George R. R. Martin",
+        "Category": "Fantasy",
+        "Price": 15.99,
+        "NumberInStock": 17
+    },
+    {
+        "id": 13,
+        "Title": "Outlander",
+        "ISBN": "9780000010201",
+        "Author": "Diana Gabaldon",
+        "Category": "Historical Romance",
+        "Price": 12.99,
+        "NumberInStock": 22
+    },
+    {
+        "id": 14,
+        "Title": "Dragonfly in Amber",
+        "ISBN": "9780000010202",
+        "Author": "Diana Gabaldon",
+        "Category": "Historical Romance",
+        "Price": 12.99,
+        "NumberInStock": 19
+    },
+    {
+        "id": 15,
+        "Title": "Voyager",
+        "ISBN": "9780000010203",
+        "Author": "Diana Gabaldon",
+        "Category": "Historical Romance",
+        "Price": 13.49,
+        "NumberInStock": 18
+    },
+    {
+        "id": 16,
+        "Title": "Drums of Autumn",
+        "ISBN": "9780000010204",
+        "Author": "Diana Gabaldon",
+        "Category": "Historical Romance",
+        "Price": 13.99,
+        "NumberInStock": 15
+    },
+    {
+        "id": 17,
+        "Title": "The Fiery Cross",
+        "ISBN": "9780000010205",
+        "Author": "Diana Gabaldon",
+        "Category": "Historical Romance",
+        "Price": 14.49,
+        "NumberInStock": 13
+    },
+    {
+        "id": 18,
+        "Title": "A Breath of Snow and Ashes",
+        "ISBN": "9780000010206",
+        "Author": "Diana Gabaldaddon",
+        "Category": "Historical Romance",
+        "Price": 14.99,
+        "NumberInStock": 12
+    },
+    {
+        "id": 19,
+        "Title": "An Echo in the Bone",
+        "ISBN": "9780000010207",
+        "Author": "Diana Gabaldon",
+        "Category": "Historical Romance",
+        "Price": 15.49,
+        "NumberInStock": 11
+    },
+    {
+        "id": 20,
+        "Title": "Written in My Own Heart's Blood",
+        "ISBN": "9780000010208",
+        "Author": "Diana Gabaldon",
+        "Category": "Historical Romance",
+        "Price": 15.99,
+        "NumberInStock": 10
+    },
+    {
+        "id": 21,
+        "Title": "Go Tell the Bees That I Am Gone",
+        "ISBN": "9780000010209",
+        "Author": "Diana Gabaldon",
+        "Category": "Historical Romance",
+        "Price": 16.49,
+        "NumberInStock": 9
+    },
+    {
+        "id": 22,
+        "Title": "The Hobbit",
+        "ISBN": "9780000010301",
+        "Author": "J. R. R. Tolkien",
+        "Category": "Fantasy",
+        "Price": 9.99,
+        "NumberInStock": 26
+    },
+    {
+        "id": 23,
+        "Title": "The Fellowship of the Ring",
+        "ISBN": "9780000010302",
+        "Author": "J. R. R. Tolkien",
+        "Category": "Fantasy",
+        "Price": 11.99,
+        "NumberInStock": 24
+    },
+    {
+        "id": 24,
+        "Title": "The Two Towers",
+        "ISBN": "9780000010303",
+        "Author": "J. R. R. Tolkien",
+        "Category": "Fantasy",
+        "Price": 11.99,
+        "NumberInStock": 23
+    },
+    {
+        "id": 25,
+        "Title": "The Return of the King",
+        "ISBN": "9780000010304",
+        "Author": "J. R. R. Tolkien",
+        "Category": "Fantasy",
+        "Price": 11.99,
+        "NumberInStock": 22
+    },
+    {
+        "id": 26,
+        "Title": "The Eye of the World",
+        "ISBN": "9780000010401",
+        "Author": "Robert Jordan",
+        "Category": "Fantasy",
+        "Price": 13.49,
+        "NumberInStock": 12
+    },
+    {
+        "id": 27,
+        "Title": "The Great Hunt",
+        "ISBN": "9780000010402",
+        "Author": "Robert Jordan",
+        "Category": "Fantasy",
+        "Price": 13.49,
+        "NumberInStock": 11
+    },
+    {
+        "id": 28,
+        "Title": "The Dragon Reborn",
+        "ISBN": "9780000010403",
+        "Author": "Robert Jordan",
+        "Category": "Fantasy",
+        "Price": 13.99,
+        "NumberInStock": 10
+    },
+    {
+        "id": 29,
+        "Title": "The Shadow Rising",
+        "ISBN": "9780000010404",
+        "Author": "Robert Jordan",
+        "Category": "Fantasy",
+        "Price": 14.49,
+        "NumberInStock": 9
+    },
+    {
+        "id": 30,
+        "Title": "The Name of the Wind",
+        "ISBN": "9780000010501",
+        "Author": "Patrick Rothfuss",
+        "Category": "Fantasy",
+        "Price": 12.99,
+        "NumberInStock": 14
+    },
+    {
+        "id": 31,
+        "Title": "The Wise Man's Fear",
+        "ISBN": "9780000010502",
+        "Author": "Patrick Rothfuss",
+        "Category": "Fantasy",
+        "Price": 13.99,
+        "NumberInStock": 12
+    },
+    {
+        "id": 32,
+        "Title": "Mistborn: The Final Empire",
+        "ISBN": "9780000010601",
+        "Author": "Brandon Sanderson",
+        "Category": "Fantasy",
+        "Price": 11.99,
+        "NumberInStock": 17
+    },
+    {
+        "id": 33,
+        "Title": "The Well of Ascension",
+        "ISBN": "9780000010602",
+        "Author": "Brandon Sanderson",
+        "Category": "Fantasy",
+        "Price": 11.99,
+        "NumberInStock": 15
+    },
+    {
+        "id": 34,
+        "Title": "The Lies of Locke Lamora",
+        "ISBN": "9780000010701",
+        "Author": "Scott Lynch",
+        "Category": "Fantasy",
+        "Price": 10.99,
+        "NumberInStock": 13
+    },
+    {
+        "id": 35,
+        "Title": "The Way of Kings",
+        "ISBN": "9780000010801",
+        "Author": "Brandon Sanderson",
+        "Category": "Fantasy",
+        "Price": 16.99,
+        "NumberInStock": 8
+    },
+    {
+        "id": 36,
+        "Title": "The Last Wish",
+        "ISBN": "9780000010901",
+        "Author": "Andrzej Sapkowski",
+        "Category": "Fantasy",
+        "Price": 9.99,
+        "NumberInStock": 20
+    },
+    {
+        "id": 37,
+        "Title": "American Gods",
+        "ISBN": "9780000011001",
+        "Author": "Neil Gaiman",
+        "Category": "Fantasy",
+        "Price": 12.99,
+        "NumberInStock": 16
+    },
+    {
+        "id": 38,
+        "Title": "Jonathan Strange & Mr Norrell",
+        "ISBN": "9780000011101",
+        "Author": "Susanna Clarke",
+        "Category": "Historical Fantasy",
+        "Price": 13.99,
+        "NumberInStock": 7
+    },
+    {
+        "id": 39,
+        "Title": "Pillars of the Earth",
+        "ISBN": "9780000011201",
+        "Author": "Ken Follett",
+        "Category": "Historical Fiction",
+        "Price": 14.99,
+        "NumberInStock": 10
+    },
+    {
+        "id": 40,
+        "Title": "The Song of Achilles",
+        "ISBN": "9780000011301",
+        "Author": "Madeline Miller",
+        "Category": "Historical Fiction",
+        "Price": 11.99,
+        "NumberInStock": 18
+    },
+    {
+        "id": 41,
+        "Title": "The Nightingale",
+        "ISBN": "9780000011401",
+        "Author": "Kristin Hannah",
+        "Category": "Historical Fiction",
+        "Price": 12.99,
+        "NumberInStock": 15
+    }
+]
