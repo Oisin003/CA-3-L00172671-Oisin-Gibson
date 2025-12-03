@@ -367,5 +367,87 @@
         "Category": "Historical Fiction",
         "Price": 12.99,
         "NumberInStock": 15
+    },
+
+    {
+        "id": 42,
+        "Title": "The Scottish Boy",
+        "ISBN": "9780000011501",
+        "Author": "Alex de Campi",
+        "Category": "Historical Romance",
+        "Price": 10.99,
+        "NumberInStock": 14
+    },
+    {
+        "id": 43,
+        "Title": "Percy Jackson and the Lightning Thief",
+        "ISBN": "9780000011502",
+        "Author": "Rick Riordan",
+        "Category": "Children / Fantasy",
+        "Price": 8.99,
+        "NumberInStock": 40
+    },
+    {
+        "id": 44,
+        "Title": "Percy Jackson and the Sea of Monsters",
+        "ISBN": "9780000011503",
+        "Author": "Rick Riordan",
+        "Category": "Children / Fantasy",
+        "Price": 8.99,
+        "NumberInStock": 36
+    },
+    {
+        "id": 45,
+        "Title": "Percy Jackson and the Titan's Curse",
+        "ISBN": "9780000011504",
+        "Author": "Rick Riordan",
+        "Category": "Children / Fantasy",
+        "Price": 9.49,
+        "NumberInStock": 32
+    },
+    {
+        "id": 46,
+        "Title": "Percy Jackson and the Battle of the Labyrinth",
+        "ISBN": "9780000011505",
+        "Author": "Rick Riordan",
+        "Category": "Children / Fantasy",
+        "Price": 9.49,
+        "NumberInStock": 30
+    },
+    {
+        "id": 47,
+        "Title": "Percy Jackson and the Last Olympian",
+        "ISBN": "9780000011506",
+        "Author": "Rick Riordan",
+        "Category": "Children / Fantasy",
+        "Price": 9.99,
+        "NumberInStock": 28
+    },
+    {
+        "id": 48,
+        "Title": "The Lost Hero",
+        "ISBN": "9780000011507",
+        "Author": "Rick Riordan",
+        "Category": "Children / Fantasy",
+        "Price": 9.99,
+        "NumberInStock": 25
+    },
+    {
+        "id": 49,
+        "Title": "The Son of Neptune",
+        "ISBN": "9780000011508",
+        "Author": "Rick Riordan",
+        "Category": "Children / Fantasy",
+        "Price": 9.99,
+        "NumberInStock": 24
+    },
+    {
+        "id": 50,
+        "Title": "The Mark of Athena",
+        "ISBN": "9780000011509",
+        "Author": "Rick Riordan",
+        "Category": "Children / Fantasy",
+        "Price": 10.49,
+        "NumberInStock": 22
     }
 ]
