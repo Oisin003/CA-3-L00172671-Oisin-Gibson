@@ -1,0 +1,99 @@
+/* Login container - centers the card */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  padding: 20px;
+}
+
+/* Login card with shadow and border */
+.login-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 2px solid #d4af37;
+  max-width: 400px;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Card header with gold background */
+.login-header {
+  background: linear-gradient(135deg, #3d2817 0%, #2a1810 100%);
+  color: #f5f1e8;
+  padding: 30px 20px;
+  text-align: center;
+  border-bottom: 3px solid #d4af37;
+}
+
+.login-header h2 {
+  margin: 0 0 10px 0;
+  color: #d4af37;
+  font-size: 1.8rem;
+}
+
+.login-header p {
+  margin: 0;
+  color: #e8dcc4;
+  font-size: 0.95rem;
+}
+
+/* Form styling */
+.login-form {
+  padding: 30px 25px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #3d2817;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #e8dcc4;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+  box-sizing: border-box;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #d4af37;
+}
+
+.form-group input::placeholder {
+  color: #999;
+}
+
+/* Login button */
+.login-button {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
+  color: #2a1810;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.login-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(212, 175, 55, 0.3);
+}
+
+.login-button:active {
+  transform: translateY(0);
+}
