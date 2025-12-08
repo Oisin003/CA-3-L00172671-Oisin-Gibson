@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import booksRouter from './routes/books.js';
 import purchasesRouter from './routes/purchases.js';
+import usersRouter from './routes/users.js';
 
 dotenv.config();
 
@@ -23,6 +24,7 @@ app.get('/', (req, res) => {
 
 app.use('/api/books', booksRouter);
 app.use('/api/purchases', purchasesRouter);
+app.use('/api/users', usersRouter);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

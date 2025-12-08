@@ -5,6 +5,35 @@ import Purchase from '../models/Purchase.js';
 
 const router = express.Router();
 
+// GET /api/purchases/user/:userId - Get all purchases for a user
+router.get('/user/:userId', async (req, res) => {
+    try {
+        const { userId } = req.params;
+        const purchases = await Purchase.find({ user: userId })
+            .populate('book')
+            .sort({ createdAt: -1 });
+        res.json(purchases);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// GET /api/purchases/cart/:userId - Get cart items (unpaid purchases) for a user
+router.get('/cart/:userId', async (req, res) => {
+    try {
+        const { userId } = req.params;
+        // For now, return all purchases since we don't have a 'paid' flag
+        // In a real app, you'd filter by status
+        const purchases = await Purchase.find({ user: userId })
+            .populate('book')
+            .sort({ createdAt: -1 })
+            .limit(10); // Get recent items
+        res.json(purchases);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
 // POST /api/purchases
 // body: { bookId, quantity, userId, name, email }
 router.post('/', async (req, res) => {

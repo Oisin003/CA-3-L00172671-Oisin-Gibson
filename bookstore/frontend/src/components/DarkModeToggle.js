@@ -1,78 +1,30 @@
 //Oisin Gibson - L00172671
-//Dark Mode Toggle component for the BookStore application
+//Dark Mode Toggle component
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { useDarkMode } from '../context/DarkModeContext';
+import './DarkModeToggle.css';
 
-function DarkModeToggle() {
-  const [darkMode, setDarkMode] = useState(false);
-
-  // Initialize dark mode state based on localStorage and system preference
-  useEffect(() => {
-    // Apply dark mode class based on saved preference or system preference
-    const applyTheme = () => {
-      document.documentElement.classList.toggle(
-        "dark",
-        localStorage.theme === "dark" ||
-          (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)
-      );
-      
-      // Update state to reflect current theme
-      setDarkMode(document.documentElement.classList.contains("dark"));
-    };
-
-    applyTheme();
-
-    // Listen for system theme changes
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    const handleSystemThemeChange = () => {
-      // Only apply system preference if no explicit theme is set
-      if (!("theme" in localStorage)) {
-        applyTheme();
-      }
-    };
-
-    mediaQuery.addListener(handleSystemThemeChange);
-    return () => mediaQuery.removeListener(handleSystemThemeChange);
-  }, []);
-
-  // Toggle dark mode
-  const toggleDarkMode = () => {
-    if (darkMode) {
-      // Switch to light mode
-      localStorage.theme = "light";
-      document.documentElement.classList.remove("dark");
-      setDarkMode(false);
-    } else {
-      // Switch to dark mode
-      localStorage.theme = "dark";
-      document.documentElement.classList.add("dark");
-      setDarkMode(true);
-    }
-  };
+export default function DarkModeToggle() {
+  const { isDarkMode, toggleDarkMode } = useDarkMode();
 
   return (
-    <button
+    <button 
+      className="dark-mode-toggle" 
       onClick={toggleDarkMode}
-      className="p-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
       aria-label="Toggle dark mode"
     >
-      {darkMode ? (
+      {isDarkMode ? (
         // Sun icon for light mode
-        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-          <path
-            fillRule="evenodd"
-            d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
-            clipRule="evenodd"
-          />
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6m0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708"/>
         </svg>
       ) : (
         // Moon icon for dark mode
-        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-          <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278"/>
         </svg>
       )}
     </button>
   );
 }
-
-export default DarkModeToggle;

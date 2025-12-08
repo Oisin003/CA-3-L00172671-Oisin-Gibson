@@ -75,6 +75,17 @@
   color: #999;
 }
 
+/* Error message */
+.error-message {
+  background-color: #fee;
+  color: #c33;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #fcc;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}
+
 /* Login button */
 .login-button {
   width: 100%;
@@ -89,6 +100,12 @@
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
+.login-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
 .login-button:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(212, 175, 55, 0.3);
@@ -96,4 +113,64 @@
 
 .login-button:active {
   transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .login-container {
+    min-height: 50vh;
+    padding: 15px;
+  }
+  
+  .login-card {
+    max-width: 100%;
+  }
+  
+  .login-header {
+    padding: 25px 15px;
+  }
+  
+  .login-header h2 {
+    font-size: 1.5rem;
+  }
+  
+  .login-form {
+    padding: 25px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    padding: 10px;
+  }
+  
+  .login-header {
+    padding: 20px 15px;
+  }
+  
+  .login-header h2 {
+    font-size: 1.3rem;
+  }
+  
+  .login-header p {
+    font-size: 0.875rem;
+  }
+  
+  .login-form {
+    padding: 20px 15px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group input {
+    padding: 10px 12px;
+    font-size: 0.95rem;
+  }
+  
+  .login-button {
+    padding: 12px;
+    font-size: 1rem;
+  }
 }

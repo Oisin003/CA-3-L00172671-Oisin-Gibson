@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import './BookList.css';
 
 export default function BookList() {
   // State to store the list of books from the API
@@ -12,15 +13,14 @@ export default function BookList() {
     loadBooks();
   }, []);
 
-  // Fetch books from the backend API
-  // If a title is provided, filter books by that title
-  function loadBooks(title) {
+  // Fetch books from the backend API with optional search term
+  function loadBooks(searchTerm = '') {
     // Start with the base API URL
     let url = 'http://localhost:5000/api/books';
     
-    // If a title was provided, add it as a query parameter for filtering
-    if (title) {
-      url = url + '?title=' + title;// ? is for query parameters
+    // If search term provided, add it as a single 'search' parameter
+    if (searchTerm) {
+      url = url + '?search=' + encodeURIComponent(searchTerm);
     }
     
     // Make the HTTP request to the backend
@@ -35,34 +35,64 @@ export default function BookList() {
 
   // Handle form submission for search
   function handleSearch(e) {
-    e.preventDefault();// Prevent page reload on form submit
+    e.preventDefault(); // Prevent page reload on form submit
     loadBooks(search);
   }
 
   // Reset search and load all books again
   function handleReset() {
-    setSearch('');// Clear the search input
-    loadBooks();// Load all books without filters
+    setSearch(''); // Clear the search input
+    loadBooks(); // Load all books without filters
   }
 
   return (
-    <div>
+    <div className="book-list-container">
       <h2>Browse Books</h2>
-      {/* Search form */}
-      <form onSubmit={handleSearch}>
-        <input value={search} onChange={e => setSearch(e.target.value)} placeholder="Search by title" />
-        <button type="submit">Search</button>
-        <button type="button" onClick={handleReset}>Reset</button>
+      
+      {/* Search form with single search bar */}
+      <form onSubmit={handleSearch} className="search-form">
+        <div className="search-grid">
+          <input 
+            type="text"
+            value={search} 
+            onChange={e => setSearch(e.target.value)} 
+            placeholder="Search by book name, author, or category" 
+            className="search-input search-input-single"
+          />
+        </div>
+        <div className="search-buttons">
+          <button type="submit" className="search-btn">Search</button>
+          <button type="button" onClick={handleReset} className="reset-btn">Reset</button>
+        </div>
       </form>
+
+      {/* Results count */}
+      <p className="results-count">{books.length} book{books.length !== 1 ? 's' : ''} found</p>
+
       {/* List of books */}
-      <ul>
+      <div className="books-grid">
         {books.map(book => (
-          <li key={book._id}>
-            <Link to={'/books/' + book._id}><strong>{book.title}</strong></Link>
-            <p>{book.author} — {book.category} — €{book.price} — In stock: {book.numberInStock}</p>
-          </li>
+          <div key={book._id} className="book-card">
+            <Link to={'/books/' + book._id} className="book-link">
+              <h3 className="book-title">{book.title}</h3>
+            </Link>
+            <p className="book-author">by {book.author}</p>
+            <p className="book-category">{book.category}</p>
+            <div className="book-footer">
+              <span className="book-price">€{book.price.toFixed(2)}</span>
+              <span className="book-stock">
+                {book.numberInStock > 0 
+                  ? `${book.numberInStock} in stock` 
+                  : 'Out of stock'}
+              </span>
+            </div>
+          </div>
         ))}
-      </ul>
+      </div>
+
+      {books.length === 0 && (
+        <p className="no-results">No books found. Try adjusting your search.</p>
+      )}
     </div>
   );
 }

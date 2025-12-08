@@ -71,3 +71,56 @@
   margin: 0;
   font-size: 0.9rem;
 }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer {
+    padding: 1.5rem 0 1rem;
+  }
+  
+  .footer-content {
+    padding: 0 1rem;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .footer-section h3 {
+    font-size: 1.25rem;
+  }
+  
+  .footer-section h4 {
+    font-size: 1rem;
+  }
+  
+  .footer-bottom {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 1rem 0 0.75rem;
+  }
+  
+  .footer-content {
+    padding: 0 0.75rem;
+    gap: 1rem;
+  }
+  
+  .footer-section h3 {
+    font-size: 1.125rem;
+  }
+  
+  .footer-bottom {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* Dark Mode Styles */
+.dark .footer {
+  background: linear-gradient(180deg, #1f2937 0%, #111827 100%);
+  border-top-color: #d4af37;
+}

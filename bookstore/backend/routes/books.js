@@ -8,11 +8,25 @@ const router = express.Router();
 // GET /api/books - list and search
 router.get('/', async (req, res) => {
     try {
-        const { title, author, category } = req.query;
-        const filter = {};
-        if (title) filter.title = { $regex: title, $options: 'i' };
-        if (author) filter.author = { $regex: author, $options: 'i' };
-        if (category) filter.category = { $regex: category, $options: 'i' };
+        const { title, author, category, search } = req.query;
+        let filter = {};
+        
+        // If 'search' parameter is provided, use OR logic to search across all fields
+        if (search) {
+            filter = {
+                $or: [
+                    { title: { $regex: search, $options: 'i' } },
+                    { author: { $regex: search, $options: 'i' } },
+                    { category: { $regex: search, $options: 'i' } }
+                ]
+            };
+        } else {
+            // Otherwise use AND logic for individual field filters
+            if (title) filter.title = { $regex: title, $options: 'i' };
+            if (author) filter.author = { $regex: author, $options: 'i' };
+            if (category) filter.category = { $regex: category, $options: 'i' };
+        }
+        
         const books = await Book.find(filter).sort({ title: 1 });
         res.json(books);
     } catch (err) {

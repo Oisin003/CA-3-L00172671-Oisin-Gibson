@@ -46,6 +46,7 @@ export default function BookDetail() {
     const purchase = {
       bookId: id,
       quantity: qty,
+      userId: user._id,
       email: user.email,
       name: user.name
     };
@@ -60,9 +61,11 @@ export default function BookDetail() {
       .then(res => res.json())
       .then(data => {
         // Show success message with total price
-        setMessage('Purchase successful — total: €' + data.purchase.totalPrice);
+        setMessage('Added to cart! Total: €' + data.purchase.totalPrice);
         // Update the book's stock count with new value from backend
         setBook({ ...book, numberInStock: data.newStock });
+        // Redirect to basket after 1.5 seconds
+        setTimeout(() => navigate('/basket'), 1500);
       })
       // Show error message if purchase fails
       .catch(err => setMessage('Error: ' + err.message));
@@ -94,7 +97,7 @@ export default function BookDetail() {
           <option value="5">5</option>
         </select>
         {/* Disable buy button if selected quantity exceeds stock */}
-        <button type="submit" disabled={qty > book.numberInStock}>Buy</button>
+        <button type="submit" disabled={qty > book.numberInStock}>Add to Cart</button>
       </form>
       {/* Display purchase message (success or error) if it exists */}
       {message && <p>{message}</p>}

@@ -190,187 +190,6 @@
     },
     {
         "id": 22,
-        "Title": "The Hobbit",
-        "ISBN": "9780000010301",
-        "Author": "J. R. R. Tolkien",
-        "Category": "Fantasy",
-        "Price": 9.99,
-        "NumberInStock": 26
-    },
-    {
-        "id": 23,
-        "Title": "The Fellowship of the Ring",
-        "ISBN": "9780000010302",
-        "Author": "J. R. R. Tolkien",
-        "Category": "Fantasy",
-        "Price": 11.99,
-        "NumberInStock": 24
-    },
-    {
-        "id": 24,
-        "Title": "The Two Towers",
-        "ISBN": "9780000010303",
-        "Author": "J. R. R. Tolkien",
-        "Category": "Fantasy",
-        "Price": 11.99,
-        "NumberInStock": 23
-    },
-    {
-        "id": 25,
-        "Title": "The Return of the King",
-        "ISBN": "9780000010304",
-        "Author": "J. R. R. Tolkien",
-        "Category": "Fantasy",
-        "Price": 11.99,
-        "NumberInStock": 22
-    },
-    {
-        "id": 26,
-        "Title": "The Eye of the World",
-        "ISBN": "9780000010401",
-        "Author": "Robert Jordan",
-        "Category": "Fantasy",
-        "Price": 13.49,
-        "NumberInStock": 12
-    },
-    {
-        "id": 27,
-        "Title": "The Great Hunt",
-        "ISBN": "9780000010402",
-        "Author": "Robert Jordan",
-        "Category": "Fantasy",
-        "Price": 13.49,
-        "NumberInStock": 11
-    },
-    {
-        "id": 28,
-        "Title": "The Dragon Reborn",
-        "ISBN": "9780000010403",
-        "Author": "Robert Jordan",
-        "Category": "Fantasy",
-        "Price": 13.99,
-        "NumberInStock": 10
-    },
-    {
-        "id": 29,
-        "Title": "The Shadow Rising",
-        "ISBN": "9780000010404",
-        "Author": "Robert Jordan",
-        "Category": "Fantasy",
-        "Price": 14.49,
-        "NumberInStock": 9
-    },
-    {
-        "id": 30,
-        "Title": "The Name of the Wind",
-        "ISBN": "9780000010501",
-        "Author": "Patrick Rothfuss",
-        "Category": "Fantasy",
-        "Price": 12.99,
-        "NumberInStock": 14
-    },
-    {
-        "id": 31,
-        "Title": "The Wise Man's Fear",
-        "ISBN": "9780000010502",
-        "Author": "Patrick Rothfuss",
-        "Category": "Fantasy",
-        "Price": 13.99,
-        "NumberInStock": 12
-    },
-    {
-        "id": 32,
-        "Title": "Mistborn: The Final Empire",
-        "ISBN": "9780000010601",
-        "Author": "Brandon Sanderson",
-        "Category": "Fantasy",
-        "Price": 11.99,
-        "NumberInStock": 17
-    },
-    {
-        "id": 33,
-        "Title": "The Well of Ascension",
-        "ISBN": "9780000010602",
-        "Author": "Brandon Sanderson",
-        "Category": "Fantasy",
-        "Price": 11.99,
-        "NumberInStock": 15
-    },
-    {
-        "id": 34,
-        "Title": "The Lies of Locke Lamora",
-        "ISBN": "9780000010701",
-        "Author": "Scott Lynch",
-        "Category": "Fantasy",
-        "Price": 10.99,
-        "NumberInStock": 13
-    },
-    {
-        "id": 35,
-        "Title": "The Way of Kings",
-        "ISBN": "9780000010801",
-        "Author": "Brandon Sanderson",
-        "Category": "Fantasy",
-        "Price": 16.99,
-        "NumberInStock": 8
-    },
-    {
-        "id": 36,
-        "Title": "The Last Wish",
-        "ISBN": "9780000010901",
-        "Author": "Andrzej Sapkowski",
-        "Category": "Fantasy",
-        "Price": 9.99,
-        "NumberInStock": 20
-    },
-    {
-        "id": 37,
-        "Title": "American Gods",
-        "ISBN": "9780000011001",
-        "Author": "Neil Gaiman",
-        "Category": "Fantasy",
-        "Price": 12.99,
-        "NumberInStock": 16
-    },
-    {
-        "id": 38,
-        "Title": "Jonathan Strange & Mr Norrell",
-        "ISBN": "9780000011101",
-        "Author": "Susanna Clarke",
-        "Category": "Historical Fantasy",
-        "Price": 13.99,
-        "NumberInStock": 7
-    },
-    {
-        "id": 39,
-        "Title": "Pillars of the Earth",
-        "ISBN": "9780000011201",
-        "Author": "Ken Follett",
-        "Category": "Historical Fiction",
-        "Price": 14.99,
-        "NumberInStock": 10
-    },
-    {
-        "id": 40,
-        "Title": "The Song of Achilles",
-        "ISBN": "9780000011301",
-        "Author": "Madeline Miller",
-        "Category": "Historical Fiction",
-        "Price": 11.99,
-        "NumberInStock": 18
-    },
-    {
-        "id": 41,
-        "Title": "The Nightingale",
-        "ISBN": "9780000011401",
-        "Author": "Kristin Hannah",
-        "Category": "Historical Fiction",
-        "Price": 12.99,
-        "NumberInStock": 15
-    },
-
-    {
-        "id": 42,
         "Title": "The Scottish Boy",
         "ISBN": "9780000011501",
         "Author": "Alex de Campi",
@@ -379,7 +198,7 @@
         "NumberInStock": 14
     },
     {
-        "id": 43,
+        "id": 23,
         "Title": "Percy Jackson and the Lightning Thief",
         "ISBN": "9780000011502",
         "Author": "Rick Riordan",
@@ -388,7 +207,7 @@
         "NumberInStock": 40
     },
     {
-        "id": 44,
+        "id": 24,
         "Title": "Percy Jackson and the Sea of Monsters",
         "ISBN": "9780000011503",
         "Author": "Rick Riordan",
@@ -397,7 +216,7 @@
         "NumberInStock": 36
     },
     {
-        "id": 45,
+        "id": 25,
         "Title": "Percy Jackson and the Titan's Curse",
         "ISBN": "9780000011504",
         "Author": "Rick Riordan",
@@ -406,7 +225,7 @@
         "NumberInStock": 32
     },
     {
-        "id": 46,
+        "id": 26,
         "Title": "Percy Jackson and the Battle of the Labyrinth",
         "ISBN": "9780000011505",
         "Author": "Rick Riordan",
@@ -415,7 +234,7 @@
         "NumberInStock": 30
     },
     {
-        "id": 47,
+        "id": 27,
         "Title": "Percy Jackson and the Last Olympian",
         "ISBN": "9780000011506",
         "Author": "Rick Riordan",
@@ -424,7 +243,7 @@
         "NumberInStock": 28
     },
     {
-        "id": 48,
+        "id": 28,
         "Title": "The Lost Hero",
         "ISBN": "9780000011507",
         "Author": "Rick Riordan",
@@ -433,7 +252,7 @@
         "NumberInStock": 25
     },
     {
-        "id": 49,
+        "id": 29,
         "Title": "The Son of Neptune",
         "ISBN": "9780000011508",
         "Author": "Rick Riordan",
@@ -442,12 +261,426 @@
         "NumberInStock": 24
     },
     {
-        "id": 50,
+        "id": 30,
         "Title": "The Mark of Athena",
         "ISBN": "9780000011509",
         "Author": "Rick Riordan",
         "Category": "Children / Fantasy",
         "Price": 10.49,
         "NumberInStock": 22
+    },
+    {
+        "id": 31,
+        "Title": "The House of Hades",
+        "ISBN": "9780000011510",
+        "Author": "Rick Riordan",
+        "Category": "Children / Fantasy",
+        "Price": 10.49,
+        "NumberInStock": 20
+    },
+    {
+        "id": 32,
+        "Title": "The Blood of Olympus",
+        "ISBN": "9780000011511",
+        "Author": "Rick Riordan",
+        "Category": "Children / Fantasy",
+        "Price": 10.99,
+        "NumberInStock": 18
+    },
+    {
+        "id": 33,
+        "Title": "Cherud - The Recruit",
+        "ISBN": "9780000011512",
+        "Author": "Robert Muchamore ",
+        "Category": "Young Adult / Action",
+        "Price": 9.99,
+        "NumberInStock": 21
+    },
+    {
+        "id": 34,
+        "Title": "Cherud - Class A",
+        "ISBN": "9780000011513",
+        "Author": "Robert Muchamore ",
+        "Category": "Young Adult / Action",
+        "Price": 9.99,
+        "NumberInStock": 19
+    },
+    {
+        "id": 35,
+        "Title": "Cherud - Maximum Security",
+        "ISBN": "9780000011514",
+        "Author": "Robert Muchamore ",
+        "Category": "Young Adult / Action",
+        "Price": 10.49,
+        "NumberInStock": 17
+    },
+    {
+        "id": 36,
+        "Title": "Cherud - The Killing",
+        "ISBN": "9780000011515",
+        "Author": "Robert Muchamore ",
+        "Category": "Young Adult / Action",
+        "Price": 10.49,
+        "NumberInStock": 15
+    },
+    {
+        "id": 37,
+        "Title": "Cherud - Divine Madness",
+        "ISBN": "9780000011516",
+        "Author": "Robert Muchamore ",
+        "Category": "Young Adult / Action",
+        "Price": 10.99,
+        "NumberInStock": 13
+    },
+    {
+        "id": 38,
+        "Title": "Cherub - Divine Madness",
+        "ISBN": "9780000011517",
+        "Author": "Robert Muchamore ",
+        "Category": "Young Adult / Action",
+        "Price": 10.99,
+        "NumberInStock": 12
+    },
+    {
+        "id": 39,
+        "Title": "Cherub - Man vs Beast",
+        "ISBN": "9780000011601",
+        "Author": "Robert Muchamore ",
+        "Category": "Young Adult / Action",
+        "Price": 9.99,
+        "NumberInStock": 30
+    },
+    {
+        "id": 40,
+        "Title": "Cherub - The Fall",
+        "ISBN": "9780000011602",
+        "Author": "Robert Muchamore ",
+        "Category": "Young Adult / Action",
+        "Price": 10.49,
+        "NumberInStock": 28
+    },
+    {
+        "id": 41,
+        "Title": "Cherub - Mad Dogs",
+        "ISBN": "9780000011603",
+        "Author": "Robert Muchamore ",
+        "Category": "Young Adult / Action",
+        "Price": 10.49,
+        "NumberInStock": 25
+    },
+    {
+        "id": 42,
+        "Title": "Cherub - The Sleepwalker",
+        "ISBN": "9780000011604",
+        "Author": "Robert Muchamore ",
+        "Category": "Young Adult / Action",
+        "Price": 10.99,
+        "NumberInStock": 22
+    },
+    {
+        "id": 43,
+        "Title": "Cherub - The General",
+        "ISBN": "9780000011605",
+        "Author": "Robert Muchamore ",
+        "Category": "Young Adult / Action",
+        "Price": 10.99,
+        "NumberInStock": 20
+    },
+    {
+        "id": 44,
+        "Title": "Cherub - Brigands M.C.",
+        "ISBN": "9780000011606",
+        "Author": "Robert Muchamore ",
+        "Category": "Young Adult / Action",
+        "Price": 11.49,
+        "NumberInStock": 18
+    },
+    {
+        "id": 45,
+        "Title": "Cherub - Shadow Wave",
+        "ISBN": "9780000011607",
+        "Author": "Robert Muchamore ",
+        "Category": "Young Adult/ Action",
+        "Price": 11.49,
+        "NumberInStock": 15
+    },
+    {
+        "id": 46,
+        "Title": "Cherub - People's Republic",
+        "ISBN": "9780000011608",
+        "Author": "Robert Muchamore ",
+        "Category": "Young Adult / Action",
+        "Price": 11.99,
+        "NumberInStock": 12
+    },
+    {
+        "id": 47,
+        "Title": "Cherub - Guardian Angel",
+        "ISBN": "9780000011609",
+        "Author": "Robert Muchamore ",
+        "Category ": "Young Adult / Action",
+        "Price": 11.99,
+        "NumberInStock": 10
+    },
+    {
+        "id": 48,
+        "Title": "Cherub - Black Friday",
+        "ISBN": "9780000011610",
+        "Author": "Robert Muchamore ",
+        "Category": "Young Adult / Action",
+        "Price": 12.49,
+        "NumberInStock": 8
+    },
+    {
+        "id": 49,
+        "Title": "Cherub - Lone Wolf",
+        "ISBN": "9780000011610",
+        "Author": "Robert Muchamore ",
+        "Category": "Young Adult / Action",
+        "Price": 12.49,
+        "NumberInStock": 8
+    },
+    {
+        "id": 50,
+        "Title": "Cherub - New Guard",
+        "ISBN": "9780000011611",
+        "Author": "Robert Muchamore ",
+        "Category": "Young Adult / Action",
+        "Price": 12.49,
+        "NumberInStock": 7
+    },
+    {
+        "id": 51,
+        "Title": "Six of Crows",
+        "ISBN": "9780000011612",
+        "Author": "Leigh Bardugo ",
+        "Category": "Young Adult / Fantasy",
+        "Price": 12.99,
+        "NumberInStock": 5
+    },
+    {
+        "id": 52,
+        "Title": "Crooked Kingdom",
+        "ISBN": "9780000011613",
+        "Author": "Leigh Bardugo ",
+        "Category": "Young Adult / Fantasy",
+        "Price": 13.49,
+        "NumberInStock": 4
+    },
+    {
+        "id": 53,
+        "Title": "The Raven Boys",
+        "ISBN": "9780000011614",
+        "Author": "Maggie Stiefvater ",
+        "Category": "Young Adult / Fantasy",
+        "Price": 11.99,
+        "NumberInStock": 6
+    },
+    {
+        "id": 54,
+        "Title": "The Dream Thieves",
+        "ISBN": "9780000011615",
+        "Author": "Maggie Stiefvater ",
+        "Category": "Young Adult / Fantasy",
+        "Price": 12.49,
+        "NumberInStock": 5
+    },
+    {
+        "id": 55,
+        "Title": "Blue Lily, Lily Blue",
+        "ISBN": "9780000011616",
+        "Author": "Maggie Stiefvater ",
+        "Category": "Young Adult / Fantasy",
+        "Price": 12.99,
+        "NumberInStock": 4
+    },
+    {
+        "id": 56,
+        "Title": "The Raven King",
+        "ISBN": "9780000011617",
+        "Author": "Maggie Stiefvater ",
+        "Category": "Young Adult / Fantasy",
+        "Price": 13.49,
+        "NumberInStock": 3
+    },
+    {
+        "id": 57,
+        "Title": "The Hunger Games",
+        "ISBN": "9780000011618",
+        "Author": "Suzanne Collins ",
+        "Category": "Young Adult / Dystopian",
+        "Price": 10.99,
+        "NumberInStock": 14
+    },
+    {
+        "id": 58,
+        "Title": "Catching Fire",
+        "ISBN": "9780000011619",
+        "Author": "Suzanne Collins ",
+        "Category": "Young Adult / Dystopian",
+        "Price": 11.49,
+        "NumberInStock": 12
+    },
+    {
+        "id": 59,
+        "Title": "Mockingjay",
+        "ISBN": "9780000011620",
+        "Author": "Suzanne Collins ",
+        "Category": "Young Adult / Dystopian",
+        "Price": 11.99,
+        "NumberInStock": 10
+    },
+    {
+        "id": 60,
+        "Title": "Dune",
+        "ISBN": "9780000011701",
+        "Author": "Frank Herbert ",
+        "Category": "Science Fiction",
+        "Price": 14.99,
+        "NumberInStock": 8
+    },
+    {
+        "id": 61,
+        "Title": "Dune Messiah",
+        "ISBN": "9780000011701",
+        "Author": "Frank Herbert ",
+        "Category": "Science Fiction",
+        "Price": 14.99,
+        "NumberInStock": 8
+    },
+    {
+        "id": 62,
+        "Title": "Children of Dune",
+        "ISBN": "9780000011702",
+        "Author": "Frank Herbert ",
+        "Category": "Science Fiction",
+        "Price": 15.49,
+        "NumberInStock": 7
+    },
+    {
+        "id": 63,
+        "Title": "God Emperor of Dune",
+        "ISBN": "9780000011703",
+        "Author": "Frank Herbert ",
+        "Category": "Science Fiction",
+        "Price": 15.99,
+        "NumberInStock": 6
+    },
+    {
+        "id": 64,
+        "Title": "Heretics of Dune",
+        "ISBN": "9780000011704",
+        "Author": "Frank Herbert ",
+        "Category": "Science Fiction",
+        "Price": 16.49,
+        "NumberInStock": 5
+    },
+    {
+        "id": 65,
+        "Title": "Chapterhouse: Dune",
+        "ISBN": "9780000011705",
+        "Author": "Frank Herbert ",
+        "Category": "Science Fiction",
+        "Price": 16.99,
+        "NumberInStock": 4
+    },
+    {
+        "id": 66,
+        "Title": "The Winds of Winter",
+        "ISBN": "9780000011801",
+        "Author": "George R. R. Martin ",
+        "Category": "Fantasy",
+        "Price": 19.99,
+        "NumberInStock": 0
+    },
+    {
+        "id": 67,
+        "Title": "Under the Dome",
+        "ISBN": "9780000011802",
+        "Author": "Stephen King ",
+        "Category": "Horror",
+        "Price": 19.99,
+        "NumberInStock": 0
+    },
+    {
+        "id": 68,
+        "Title": "IT",
+        "ISBN": "9780000011803",
+        "Author": "Stephen King ",
+        "Category": "Horror",
+        "Price": 18.99,
+        "NumberInStock": 3
+    },
+    {
+        "id": 69,
+        "Title": "11/22/63",
+        "ISBN": "9780000011804",
+        "Author": "Stephen King ",
+        "Category": "Horror",
+        "Price": 17.99,
+        "NumberInStock": 5
+    },
+    {
+        "id": 70,
+        "Title": "Star Wars: The Phantom Menace",
+        "ISBN": "9780000011805",
+        "Author": "John Jackson Miller ",
+        "Category": "Science Fiction",
+        "Price": 16.99,
+        "NumberInStock": 7
+    },
+    {
+        "id": 71,
+        "Title": "Star Wars: Attack of the Clones",
+        "ISBN": "9780000011806",
+        "Author": "Randy Stradley ",
+        "Category": "Science Fiction",
+        "Price": 16.99,
+        "NumberInStock": 6
+    },
+    {
+        "id": 72,
+        "Title": "Star Wars: Revenge of the Sith",
+        "ISBN": "9780000011807",
+        "Author": "Matthew Stover ",
+        "Category": "Science Fiction",
+        "Price": 16.99,
+        "NumberInStock": 5
+    },
+    {
+        "id": 73,
+        "Title": "Star Wars: Vector Prime",
+        "ISBN": "9780000011808",
+        "Author": "R. A. Salvatore ",
+        "Category": "Science Fiction",
+        "Price": 16.99,
+        "NumberInStock": 4
+    },
+    {
+        "id": 74,
+        "Title": "Star Wars: Dark Tide I - Onslaught",
+        "ISBN": "9780000011809",
+        "Author": "Michael Reaves ",
+        "Category": "Science Fiction",
+        "Price": 16.99,
+        "NumberInStock": 3
+    },
+    {
+        "id": 75,
+        "Title": "Star Wars: Dark Tide II - Ruin",
+        "ISBN": "9780000011810",
+        "Author": "Michael Reaves ",
+        "Category": "Science Fiction",
+        "Price": 16.99,
+        "NumberInStock": 2
+    },
+    {
+        "id": 76,
+        "Title": "Star Wars: Dark Tide III - Salvation",
+        "ISBN": "9780000011811",
+        "Author": "Michael Reaves ",
+        "Category": "Science Fiction",
+        "Price": 16.99,
+        "NumberInStock": 1
     }
 ]

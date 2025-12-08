@@ -6,6 +6,7 @@
 
 html, body, #root {
   height: 100%;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .App {
@@ -13,6 +14,7 @@ html, body, #root {
   flex-direction: column;
   min-height: 100vh;
   background-color: #f5f1e8;
+  transition: background-color 0.3s ease;
 }
 
 .main-content {
@@ -21,4 +23,71 @@ html, body, #root {
   width: 100%;
   margin: 0 auto;
   padding: 2rem;
+}
+
+/* Responsive Design - Mobile */
+@media (max-width: 768px) {
+  .main-content {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    padding: 0.75rem;
+  }
+}
+
+/* Dark Mode Global Styles */
+.dark {
+  background-color: #111827;
+  color: #f3f4f6;
+}
+
+.dark .App {
+  background-color: #111827;
+}
+
+.dark .main-content {
+  color: #f3f4f6;
+}
+
+/* Dark mode for headings */
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+  color: #f3f4f6;
+}
+
+/* Dark mode for links */
+.dark a {
+  color: #d4af37;
+}
+
+.dark a:hover {
+  color: #fbbf24;
+}
+
+/* Dark mode for inputs and buttons */
+.dark input,
+.dark select,
+.dark textarea {
+  background-color: #374151;
+  border-color: #4b5563;
+  color: #f3f4f6;
+}
+
+.dark input:focus,
+.dark select:focus,
+.dark textarea:focus {
+  border-color: #d4af37;
+  background-color: #4b5563;
+}
+
+.dark button {
+  background-color: #374151;
+  color: #f3f4f6;
+  border-color: #4b5563;
+}
+
+.dark button:hover {
+  background-color: #4b5563;
 }

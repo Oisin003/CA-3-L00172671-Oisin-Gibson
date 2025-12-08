@@ -1,0 +1,25 @@
+//Oisin Gibson - L00172671
+//Dark Mode Toggle styles
+
+.dark-mode-toggle {
+  background-color: transparent;
+  border: 1px solid rgba(245, 241, 232, 0.3);
+  border-radius: 4px;
+  padding: 0.5rem;
+  cursor: pointer;
+  color: #f5f1e8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+
+.dark-mode-toggle:hover {
+  background-color: rgba(212, 175, 55, 0.15);
+  border-color: #d4af37;
+  color: #d4af37;
+}
+
+.dark-mode-toggle svg {
+  display: block;
+}
