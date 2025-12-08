@@ -9,4 +9,5 @@ const PurchaseSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 const Purchase = mongoose.model('Purchase', PurchaseSchema);
+console.log('Purchase model loaded');
 export default Purchase;
