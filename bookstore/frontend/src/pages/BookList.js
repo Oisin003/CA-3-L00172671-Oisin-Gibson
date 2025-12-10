@@ -79,7 +79,7 @@ export default function BookList() {
             <p className="book-author">by {book.author}</p>
             <p className="book-category">{book.category}</p>
             <div className="book-footer">
-              <span className="book-price">€{book.price.toFixed(2)}</span>
+              <span className="book-price">€{book.price ? book.price.toFixed(2) : 'N/A'}</span>
               <span className="book-stock">
                 {book.numberInStock > 0 
                   ? `${book.numberInStock} in stock` 

@@ -74,6 +74,8 @@ export default function Basket() {
       paymentMethod: formData.paymentMethod,
       deliveryMethod: formData.deliveryMethod,
       subtotal: calculateSubtotal(),
+      originalPrice: calculateOriginalPrice(),
+      totalDiscount: calculateTotalDiscount(),
       delivery: getDeliveryPrice(),
       tax: calculateTax(),
       total: calculateTotal()
@@ -86,6 +88,18 @@ export default function Basket() {
 
   const calculateSubtotal = () => {
     return cartItems.reduce((sum, item) => sum + item.totalPrice, 0);
+  };
+
+  const calculateOriginalPrice = () => {
+    // Calculate what the price would have been without discounts
+    return cartItems.reduce((sum, item) => {
+      const originalPrice = item.totalPrice / (1 - item.discountApplied);
+      return sum + originalPrice;
+    }, 0);
+  };
+
+  const calculateTotalDiscount = () => {
+    return calculateOriginalPrice() - calculateSubtotal();
   };
 
   const calculateTax = () => {
@@ -179,6 +193,18 @@ export default function Basket() {
           </div>
 
           <div className="confirmation-summary">
+            {orderConfirmation.totalDiscount > 0 && (
+              <div className="summary-row discount-highlight">
+                <span>Original Price:</span>
+                <span>€{orderConfirmation.originalPrice.toFixed(2)}</span>
+              </div>
+            )}
+            {orderConfirmation.totalDiscount > 0 && (
+              <div className="summary-row discount-highlight">
+                <span>Discount (5%):</span>
+                <span className="discount-amount">-€{orderConfirmation.totalDiscount.toFixed(2)}</span>
+              </div>
+            )}
             <div className="summary-row">
               <span>Subtotal:</span>
               <span>€{orderConfirmation.subtotal.toFixed(2)}</span>
@@ -258,7 +284,7 @@ export default function Basket() {
                       </p>
                       {item.discountApplied > 0 && (
                         <p className="cart-item-discount">
-                          Discount applied: {(item.discountApplied * 100).toFixed(0)}%
+                          ✓ {(item.discountApplied * 100).toFixed(0)}% discount applied
                         </p>
                       )}
                     </div>
@@ -498,6 +524,18 @@ export default function Basket() {
           <Card>
             <h3>Order Summary</h3>
             <div className="summary-items">
+              {calculateTotalDiscount() > 0 && (
+                <>
+                  <div className="summary-row">
+                    <span>Original Price</span>
+                    <span className="strikethrough">€{calculateOriginalPrice().toFixed(2)}</span>
+                  </div>
+                  <div className="summary-row discount-row">
+                    <span>Your Discount (5%)</span>
+                    <span className="discount-amount">-€{calculateTotalDiscount().toFixed(2)}</span>
+                  </div>
+                </>
+              )}
               <div className="summary-row">
                 <span>Subtotal ({cartItems.length} {cartItems.length === 1 ? 'item' : 'items'})</span>
                 <span>€{calculateSubtotal().toFixed(2)}</span>
@@ -514,6 +552,11 @@ export default function Basket() {
                 <strong>Total</strong>
                 <strong>€{calculateTotal().toFixed(2)}</strong>
               </div>
+              {calculateTotalDiscount() > 0 && (
+                <div className="savings-badge">
+                  You saved €{calculateTotalDiscount().toFixed(2)}!
+                </div>
+              )}
             </div>
             <button 
               type="submit" 
