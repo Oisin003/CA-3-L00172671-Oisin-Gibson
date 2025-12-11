@@ -1,25 +1,41 @@
-//Oisin Gibson - L00172671
-//Dark Mode Toggle styles
 
+
+/**
+ * Dark Mode Toggle Button Styles
+ * Styling for the sun/moon icon button that toggles dark mode
+ * Uses the brown/gold theme with semi-transparent effects
+ */
+
+/* Base toggle button styles */
 .dark-mode-toggle {
+  /* Transparent background to blend with header */
   background-color: transparent;
+  /* Subtle cream border with transparency */
   border: 1px solid rgba(245, 241, 232, 0.3);
   border-radius: 4px;
   padding: 0.5rem;
   cursor: pointer;
+  /* Cream text/icon color */
   color: #f5f1e8;
+  /* Center the icon within the button */
   display: flex;
   align-items: center;
   justify-content: center;
+  /* Smooth transition for hover effects */
   transition: all 0.3s;
 }
 
+/* Hover state - highlight with gold accent */
 .dark-mode-toggle:hover {
+  /* Light gold background on hover */
   background-color: rgba(212, 175, 55, 0.15);
+  /* Gold border on hover */
   border-color: #d4af37;
+  /* Gold icon color on hover */
   color: #d4af37;
 }
 
+/* Ensure SVG icon displays correctly */
 .dark-mode-toggle svg {
   display: block;
 }

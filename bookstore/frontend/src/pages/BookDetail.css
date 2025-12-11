@@ -1,0 +1,397 @@
+/* Oisin Gibson - L00172671
+   Book Detail page styles with card layout */
+
+/* Main container for book detail page */
+.book-detail-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Main book information card */
+.book-detail-card {
+  text-align: center;
+}
+
+/* Large book icon at top of card */
+.book-icon-large {
+  color: #d4af37;
+  margin-bottom: 1.5rem;
+}
+
+.book-icon-large svg {
+  display: inline-block;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+/* Book title styling */
+.book-title {
+  color: #3d2817;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.2;
+}
+
+/* Book author styling */
+.book-author {
+  color: #666;
+  font-size: 1.125rem;
+  font-style: italic;
+  margin: 0 0 0.5rem 0;
+}
+
+/* Book category badge */
+.book-category {
+  display: inline-block;
+  background: linear-gradient(135deg, #d4af37 0%, #b8962f 100%);
+  color: #2a1810;
+  padding: 0.5rem 1.5rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 1.5rem;
+}
+
+/* Grid for price and stock information */
+.book-info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid #e8dcc4;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  background-color: #f5f1e8;
+  border-radius: 8px;
+}
+
+.info-label {
+  color: #666;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.info-value {
+  color: #3d2817;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* Out of stock indicator */
+.out-of-stock {
+  color: #dc2626;
+}
+
+/* User status card */
+.user-status-card h3 {
+  color: #3d2817;
+  margin: 0 0 1rem 0;
+  font-size: 1.25rem;
+}
+
+.user-info-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background-color: #f5f1e8;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  color: #3d2817;
+  font-weight: 500;
+}
+
+.user-info-item svg {
+  color: #d4af37;
+  flex-shrink: 0;
+}
+
+/* Spending information section */
+.spending-info {
+  margin-top: 1rem;
+}
+
+.spending-amount {
+  color: #d4af37;
+  font-weight: 600;
+  font-size: 1.125rem;
+  margin: 0 0 0.75rem 0;
+}
+
+/* Discount badge - shown for discount status */
+.discount-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9375rem;
+}
+
+.discount-badge.success {
+  background-color: #d1fae5;
+  color: #065f46;
+  border: 2px solid #10b981;
+}
+
+.discount-badge.info {
+  background-color: #dbeafe;
+  color: #1e40af;
+  border: 2px solid #3b82f6;
+}
+
+.discount-badge svg {
+  flex-shrink: 0;
+}
+
+/* Purchase card */
+.purchase-card h3 {
+  color: #3d2817;
+  margin: 0 0 1.5rem 0;
+  font-size: 1.25rem;
+}
+
+/* Purchase form */
+.purchase-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.form-group label {
+  color: #3d2817;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* Quantity selector dropdown */
+.quantity-select {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 2px solid #e8dcc4;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: white;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+.quantity-select:focus {
+  outline: none;
+  border-color: #d4af37;
+}
+
+/* Price breakdown section */
+.price-breakdown {
+  background-color: #f5f1e8;
+  padding: 1.25rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #3d2817;
+  font-size: 1rem;
+}
+
+.price-row.discount-row {
+  color: #059669;
+  font-weight: 600;
+}
+
+.price-row.total-row {
+  font-size: 1.25rem;
+  padding-top: 0.75rem;
+  border-top: 2px solid #e8dcc4;
+  margin-top: 0.5rem;
+}
+
+/* Add to cart button */
+.btn-add-to-cart {
+  background: linear-gradient(135deg, #d4af37 0%, #b8962f 100%);
+  color: #2a1810;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1.125rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-add-to-cart:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(212, 175, 55, 0.4);
+}
+
+.btn-add-to-cart:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn-add-to-cart:disabled {
+  background: #ccc;
+  color: #666;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Success/error message */
+.message {
+  padding: 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-align: center;
+  animation: slideDown 0.3s ease;
+}
+
+.message.success {
+  background-color: #d1fae5;
+  color: #065f46;
+  border: 2px solid #10b981;
+}
+
+.message.error {
+  background-color: #fee2e2;
+  color: #991b1b;
+  border: 2px solid #ef4444;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Dark mode styles */
+.dark .book-title,
+.dark .user-status-card h3,
+.dark .purchase-card h3,
+.dark .form-group label,
+.dark .info-value,
+.dark .price-row {
+  color: #f5f1e8;
+}
+
+.dark .book-author {
+  color: #ccc;
+}
+
+.dark .info-label {
+  color: #aaa;
+}
+
+.dark .info-item,
+.dark .user-info-item,
+.dark .price-breakdown {
+  background-color: #2a1810;
+}
+
+.dark .book-info-grid {
+  border-top-color: #4a3020;
+}
+
+.dark .quantity-select {
+  background-color: #2a1810;
+  border-color: #4a3020;
+  color: #f5f1e8;
+}
+
+.dark .quantity-select:focus {
+  border-color: #d4af37;
+}
+
+.dark .price-row.total-row {
+  border-top-color: #4a3020;
+}
+
+/* Responsive design for tablets */
+@media (max-width: 768px) {
+  .book-detail-container {
+    padding: 1.5rem;
+  }
+
+  .book-title {
+    font-size: 1.75rem;
+  }
+
+  .book-icon-large svg {
+    width: 64px;
+    height: 64px;
+  }
+
+  .book-info-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Responsive design for mobile */
+@media (max-width: 480px) {
+  .book-detail-container {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .book-title {
+    font-size: 1.5rem;
+  }
+
+  .book-icon-large svg {
+    width: 56px;
+    height: 56px;
+  }
+
+  .book-author {
+    font-size: 1rem;
+  }
+
+  .info-value {
+    font-size: 1.25rem;
+  }
+
+  .btn-add-to-cart {
+    padding: 0.875rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  .form-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .price-row.total-row {
+    font-size: 1.125rem;
+  }
+}

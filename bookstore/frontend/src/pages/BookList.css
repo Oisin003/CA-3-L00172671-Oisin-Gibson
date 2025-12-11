@@ -110,6 +110,9 @@
   padding: 1.5rem;
   transition: all 0.3s;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .book-card:hover {
@@ -118,8 +121,24 @@
   border-color: #d4af37;
 }
 
+.book-icon {
+  color: #d4af37;
+  margin-bottom: 1rem;
+  transition: transform 0.3s;
+}
+
+.book-card:hover .book-icon {
+  transform: scale(1.1);
+}
+
+.book-icon svg {
+  display: block;
+}
+
 .book-link {
   text-decoration: none;
+  width: 100%;
+  text-align: center;
 }
 
 .book-title {
@@ -127,6 +146,7 @@
   font-size: 1.25rem;
   margin: 0 0 0.5rem 0;
   transition: color 0.3s;
+  text-align: center;
 }
 
 .book-link:hover .book-title {
@@ -138,6 +158,8 @@
   font-size: 1rem;
   margin: 0.5rem 0;
   font-style: italic;
+  text-align: center;
+  width: 100%;
 }
 
 .book-category {
@@ -147,6 +169,8 @@
   text-transform: uppercase;
   letter-spacing: 0.5px;
   margin: 0.5rem 0;
+  text-align: center;
+  width: 100%;
 }
 
 .book-footer {
@@ -156,6 +180,7 @@
   margin-top: 1rem;
   padding-top: 1rem;
   border-top: 1px solid #e8dcc4;
+  width: 100%;
 }
 
 .book-price {

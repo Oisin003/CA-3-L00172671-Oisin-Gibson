@@ -117,6 +117,57 @@
   color: white;
 }
 
+/* Login Prompt Card - displayed when user is not logged in */
+.login-prompt-card {
+  margin: 2rem 0;
+  background: linear-gradient(135deg, #f5f1e8 0%, #ffffff 100%);
+  border: 2px solid #d4af37;
+}
+
+.login-prompt-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.login-icon {
+  color: #d4af37;
+  margin-bottom: 1.5rem;
+}
+
+.login-prompt-content h3 {
+  color: #3d2817;
+  font-size: 1.5rem;
+  margin: 0 0 0.75rem 0;
+}
+
+.login-prompt-content p {
+  color: #6b7280;
+  font-size: 1rem;
+  margin: 0 0 1.5rem 0;
+  max-width: 400px;
+}
+
+.btn-login {
+  background: linear-gradient(135deg, #d4af37 0%, #b8962f 100%);
+  color: #2a1810;
+  text-decoration: none;
+  padding: 0.875rem 2.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s;
+  display: inline-block;
+}
+
+.btn-login:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(212, 175, 55, 0.3);
+}
+
+/* Empty cart message */
 .empty-cart {
   text-align: center;
   padding: 2rem;
@@ -749,6 +800,24 @@
 .dark .btn-remove:hover {
   background-color: #ef4444;
   color: #fff;
+}
+
+/* Dark mode for login prompt card */
+.dark .login-prompt-card {
+  background: linear-gradient(135deg, #2a1810 0%, #1a0f08 100%);
+  border-color: #d4af37;
+}
+
+.dark .login-prompt-content h3 {
+  color: #f5f1e8;
+}
+
+.dark .login-prompt-content p {
+  color: #9ca3af;
+}
+
+.dark .login-icon {
+  color: #d4af37;
 }
 
 /* Dark mode for confirmation */

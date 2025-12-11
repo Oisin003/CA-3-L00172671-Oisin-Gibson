@@ -1,28 +1,44 @@
+/**
+ * Footer Component Styles
+ * Styling for the site footer with brown/gold gradient theme
+ * Includes responsive design and dark mode support
+ */
+
+/* Main footer container - gradient background with gold border */
 .footer {
+  /* Brown gradient from lighter to darker */
   background: linear-gradient(180deg, #3d2817 0%, #2a1810 100%);
+  /* Cream text color */
   color: #f5f1e8;
+  /* Push footer to bottom of page */
   margin-top: auto;
   padding: 2rem 0 1rem;
+  /* Gold top border for visual separation */
   border-top: 3px solid #d4af37;
 }
 
+/* Footer content grid layout */
 .footer-content {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
+  /* Responsive grid - columns adjust based on screen size */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
   margin-bottom: 2rem;
 }
 
+/* Footer section main headings */
 .footer-section h3 {
   margin-top: 0;
+  /* Gold color for headings */
   color: #d4af37;
   font-size: 1.5rem;
   font-weight: 600;
 }
 
+/* Footer section subheadings */
 .footer-section h4 {
   color: #d4af37;
   margin-bottom: 1rem;
@@ -30,36 +46,46 @@
   font-weight: 500;
 }
 
+/* Footer paragraph text */
 .footer-section p {
+  /* Light cream color for body text */
   color: #e8dcc4;
   line-height: 1.6;
   margin: 0.5rem 0;
 }
 
+/* Footer lists - remove default styling */
 .footer-section ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
+/* Footer list items spacing */
 .footer-section ul li {
   margin-bottom: 0.5rem;
 }
 
+/* Footer links */
 .footer-section a {
   color: #e8dcc4;
   text-decoration: none;
+  /* Smooth color transition on hover */
   transition: color 0.3s;
 }
 
+/* Footer link hover state - gold highlight */
 .footer-section a:hover {
   color: #d4af37;
 }
 
+/* Footer bottom section - copyright and legal info */
 .footer-bottom {
+  /* Gold border separator */
   border-top: 1px solid #d4af37;
   padding-top: 1rem;
   text-align: center;
+  /* Lighter tan color for copyright text */
   color: #c9b896;
   max-width: 1200px;
   margin: 0 auto;
@@ -67,23 +93,27 @@
   padding-right: 2rem;
 }
 
+/* Footer bottom paragraph */
 .footer-bottom p {
   margin: 0;
   font-size: 0.9rem;
 }
 
-/* Responsive Design */
+/* Responsive Design - Tablet and below */
 @media (max-width: 768px) {
+  /* Reduce footer padding */
   .footer {
     padding: 1.5rem 0 1rem;
   }
   
+  /* Single column layout on smaller screens */
   .footer-content {
     padding: 0 1rem;
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
   
+  /* Reduce heading sizes */
   .footer-section h3 {
     font-size: 1.25rem;
   }
@@ -92,13 +122,16 @@
     font-size: 1rem;
   }
   
+  /* Adjust bottom section padding */
   .footer-bottom {
     padding-left: 1rem;
     padding-right: 1rem;
   }
 }
 
+/* Responsive Design - Mobile devices */
 @media (max-width: 480px) {
+  /* Further reduce padding for mobile */
   .footer {
     padding: 1rem 0 0.75rem;
   }
@@ -108,10 +141,12 @@
     gap: 1rem;
   }
   
+  /* Smaller heading on mobile */
   .footer-section h3 {
     font-size: 1.125rem;
   }
   
+  /* Compact bottom section for mobile */
   .footer-bottom {
     padding-left: 0.75rem;
     padding-right: 0.75rem;
@@ -121,6 +156,8 @@
 
 /* Dark Mode Styles */
 .dark .footer {
+  /* Darker gradient for dark mode */
   background: linear-gradient(180deg, #1f2937 0%, #111827 100%);
+  /* Keep gold border in dark mode */
   border-top-color: #d4af37;
 }

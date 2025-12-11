@@ -5,11 +5,26 @@ import React, { useState, useEffect } from 'react';
 import Card from '../components/Card';
 import './Basket.css';
 
+/**
+ * Basket Component
+ * Complete shopping cart and checkout page
+ * Features:
+ * - View cart items with prices and discounts
+ * - Checkout form with delivery and payment details
+ * - Order summary with automatic calculations
+ * - Order confirmation page
+ * - User authentication check
+ */
 export default function Basket() {
+  // State for cart items fetched from backend
   const [cartItems, setCartItems] = useState([]);
+  // State for logged-in user (from localStorage)
   const [user, setUser] = useState(null);
+  // Loading state while fetching cart data
   const [loading, setLoading] = useState(true);
+  // Order confirmation data (null until order is placed)
   const [orderConfirmation, setOrderConfirmation] = useState(null);
+  // Form data for checkout (delivery and payment info)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -21,12 +36,19 @@ export default function Basket() {
     deliveryMethod: 'standard'
   });
 
+  /**
+   * Effect: Load user and cart data on component mount
+   * Checks localStorage for logged-in user
+   * Pre-fills form with user data if available
+   * Loads cart items for logged-in user
+   */
   useEffect(() => {
     // Get logged-in user from localStorage
     const userData = localStorage.getItem('user');
     if (userData) {
       const parsedUser = JSON.parse(userData);
       setUser(parsedUser);
+      // Pre-fill form with user's name and email
       setFormData(prev => ({
         ...prev,
         name: parsedUser.name || '',
@@ -38,6 +60,11 @@ export default function Basket() {
     }
   }, []);
 
+  /**
+   * Load cart items from backend for a specific user
+   * Fetches all items in user's cart from /api/purchases/cart/:userId
+   * @param {String} userId - MongoDB ID of the user
+   */
   const loadCartItems = async (userId) => {
     try {
       const response = await fetch(`http://localhost:5000/api/purchases/cart/${userId}`);
@@ -50,15 +77,26 @@ export default function Basket() {
     }
   };
 
+  /**
+   * Handle form input changes
+   * Updates formData state as user types
+   * @param {Event} e - Input change event
+   */
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
+  /**
+   * Handle form submission (checkout)
+   * Creates order confirmation object with all order details
+   * Switches to confirmation view and scrolls to top
+   * @param {Event} e - Form submit event
+   */
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    // Create order confirmation
+    // Create unique order number using timestamp
     const orderNumber = 'ORD-' + Date.now();
     const confirmation = {
       orderNumber,
@@ -86,10 +124,19 @@ export default function Basket() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  /**
+   * Calculate subtotal (sum of all item prices after discounts)
+   * @returns {Number} Total price of all items in cart
+   */
   const calculateSubtotal = () => {
     return cartItems.reduce((sum, item) => sum + item.totalPrice, 0);
   };
 
+  /**
+   * Calculate original price before any discounts were applied
+   * Reverses the discount calculation to show savings
+   * @returns {Number} Original price without discounts
+   */
   const calculateOriginalPrice = () => {
     // Calculate what the price would have been without discounts
     return cartItems.reduce((sum, item) => {
@@ -98,14 +145,27 @@ export default function Basket() {
     }, 0);
   };
 
+  /**
+   * Calculate total discount amount (difference between original and discounted price)
+   * @returns {Number} Total savings from discounts
+   */
   const calculateTotalDiscount = () => {
     return calculateOriginalPrice() - calculateSubtotal();
   };
 
+  /**
+   * Calculate tax (20% VAT on subtotal)
+   * Rounds to 2 decimal places
+   * @returns {Number} Tax amount
+   */
   const calculateTax = () => {
     return Math.round(calculateSubtotal() * 0.2 * 100) / 100; // 20% VAT
   };
 
+  /**
+   * Get delivery price based on selected delivery method
+   * @returns {Number} Delivery cost (0, 5, or 15 euros)
+   */
   const getDeliveryPrice = () => {
     switch (formData.deliveryMethod) {
       case 'free': return 0;
@@ -115,35 +175,65 @@ export default function Basket() {
     }
   };
 
+  /**
+   * Calculate final total (subtotal + delivery + tax)
+   * @returns {Number} Final amount to pay
+   */
   const calculateTotal = () => {
     return calculateSubtotal() + getDeliveryPrice() + calculateTax();
   };
 
+  /**
+   * Remove an item from cart
+   * Filters out the item with matching ID
+   * @param {String} itemId - MongoDB ID of cart item to remove
+   */
   const removeFromCart = (itemId) => {
     setCartItems(prev => prev.filter(item => item._id !== itemId));
   };
 
+  // Show loading indicator while fetching data
   if (loading) {
     return <div className="basket-container"><p>Loading...</p></div>;
   }
 
+  /**
+   * Login Prompt View
+   * Displayed when user is not logged in
+   * Shows message and button to navigate to login page
+   */
   if (!user) {
     return (
       <div className="basket-container">
         <Card className="section-card">
-          <h2>Please Log In</h2>
-          <p>You need to be logged in to view your basket.</p>
-          <a href="/login" className="btn-checkout">Go to Login</a>
+          <div className="login-prompt-card">
+            <div className="login-prompt-content">
+              {/* User icon */}
+              <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" viewBox="0 0 16 16" className="login-icon">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                <path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+              </svg>
+              <h3>Please Log In</h3>
+              <p>You must be logged in to view your basket.</p>
+              <a href="/login" className="btn-login">Go to Login</a>
+            </div>
+          </div>
         </Card>
       </div>
     );
   }
 
-  // Order Confirmation View
+  /**
+   * Order Confirmation View
+   * Displayed after successful checkout
+   * Shows order details, items, delivery info, and summary
+   * Includes options to continue shopping or print receipt
+   */
   if (orderConfirmation) {
     return (
       <div className="basket-container">
         <Card className="confirmation-card">
+          {/* Confirmation Header - success icon and messages */}
           <div className="confirmation-header">
             <svg width="64" height="64" fill="none" viewBox="0 0 24 24" className="confirmation-icon">
               <path stroke="#10b981" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" />
@@ -152,6 +242,7 @@ export default function Basket() {
             <p className="confirmation-subtitle">Thank you for your purchase</p>
           </div>
 
+          {/* Order Details - order number, date, email */}
           <div className="confirmation-details">
             <div className="confirmation-row">
               <span className="label">Order Number:</span>
@@ -167,6 +258,7 @@ export default function Basket() {
             </div>
           </div>
 
+          {/* Order Items Section - list of purchased books */}
           <div className="confirmation-section">
             <h3>Order Items</h3>
             {orderConfirmation.items.map((item, index) => (
@@ -180,6 +272,7 @@ export default function Basket() {
             ))}
           </div>
 
+          {/* Delivery Information Section */}
           <div className="confirmation-section">
             <h3>Delivery Information</h3>
             <p>{orderConfirmation.deliveryInfo.name}</p>
@@ -192,7 +285,9 @@ export default function Basket() {
             </p>
           </div>
 
+          {/* Order Summary - prices, discounts, tax, total */}
           <div className="confirmation-summary">
+            {/* Show original price and discount if applicable */}
             {orderConfirmation.totalDiscount > 0 && (
               <div className="summary-row discount-highlight">
                 <span>Original Price:</span>
@@ -223,6 +318,7 @@ export default function Basket() {
             </div>
           </div>
 
+          {/* Action Buttons - continue shopping or print */}
           <div className="confirmation-actions">
             <button onClick={() => window.location.href = '/'} className="btn-checkout">
               Continue Shopping
@@ -236,9 +332,19 @@ export default function Basket() {
     );
   }
 
+  /**
+   * Main Checkout View
+   * Contains checkout form with cart items, delivery details,
+   * payment options, delivery options, and order summary
+   */
+  /**
+   * Main Checkout View
+   * Contains checkout form with cart items, delivery details,
+   * payment options, delivery options, and order summary
+   */
   return (
     <div className="basket-container">
-      {/* Checkout Steps */}
+      {/* Checkout Steps - visual progress indicator */}
       <div className="checkout-steps">
         <div className="step step-active">
           <svg width="20" height="20" fill="none" viewBox="0 0 24 24">
@@ -262,17 +368,33 @@ export default function Basket() {
         </div>
       </div>
 
+      {/* Main Checkout Form - contains all form sections and order summary */}
       <form onSubmit={handleSubmit} className="checkout-form">
         <div className="checkout-main">
-          {/* Cart Items Summary */}
+          {/* Cart Items Summary Card */}
           <Card className="section-card">
             <h2>Your Cart ({cartItems.length} {cartItems.length === 1 ? 'item' : 'items'})</h2>
-            {cartItems.length === 0 ? (
+            {/* Show login prompt if user is not logged in */}
+            {!user ? (
+              <div className="login-prompt-card">
+                <div className="login-prompt-content">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" viewBox="0 0 16 16" className="login-icon">
+                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                    <path fillRule="evenodd" d="M0 8a8 8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                  </svg>
+                  <h3>Please Log In</h3>
+                  <p>You must be logged in to view your basket.</p>
+                  <a href="/login" className="btn-login">Go to Login</a>
+                </div>
+              </div>
+            ) : cartItems.length === 0 ? (
+              /* Empty cart message */
               <div className="empty-cart">
                 <p>Your cart is empty</p>
                 <a href="/" className="btn-apply">Browse Books</a>
               </div>
             ) : (
+              /* Cart items list */
               <div className="cart-items">
                 {cartItems.map((item) => (
                   <div key={item._id} className="cart-item">
@@ -282,6 +404,7 @@ export default function Basket() {
                       <p className="cart-item-meta">
                         Quantity: {item.quantity} × €{(item.totalPrice / item.quantity).toFixed(2)}
                       </p>
+                      {/* Show discount badge if discount was applied */}
                       {item.discountApplied > 0 && (
                         <p className="cart-item-discount">
                           ✓ {(item.discountApplied * 100).toFixed(0)}% discount applied
@@ -304,7 +427,7 @@ export default function Basket() {
             )}
           </Card>
 
-          {/* Delivery Details */}
+          {/* Delivery Details Card - form inputs for shipping address */}
           <Card className="section-card">
             <h2>Delivery Details</h2>
             <div className="form-grid">
@@ -391,10 +514,11 @@ export default function Basket() {
             </div>
           </Card>
 
-          {/* Payment Methods */}
+          {/* Payment Methods Card - radio button options */}
           <Card className="section-card">
             <h3>Payment</h3>
             <div className="payment-methods">
+              {/* Credit Card Option */}
               <Card padding="small" className="payment-option">
                 <div className="radio-group">
                   <input
@@ -412,6 +536,7 @@ export default function Basket() {
                 </div>
               </Card>
 
+              {/* Pay on Delivery Option */}
               <Card padding="small" className="payment-option">
                 <div className="radio-group">
                   <input
@@ -429,6 +554,7 @@ export default function Basket() {
                 </div>
               </Card>
 
+              {/* PayPal Option */}
               <Card padding="small" className="payment-option">
                 <div className="radio-group">
                   <input
@@ -448,10 +574,11 @@ export default function Basket() {
             </div>
           </Card>
 
-          {/* Delivery Methods */}
+          {/* Delivery Methods Card - shipping speed options */}
           <Card className="section-card">
             <h3>Delivery Methods</h3>
             <div className="delivery-methods">
+              {/* Standard Delivery (€5) */}
               <Card padding="small" className="delivery-option">
                 <div className="radio-group">
                   <input
@@ -469,6 +596,7 @@ export default function Basket() {
                 </div>
               </Card>
 
+              {/* Express Delivery (€15) */}
               <Card padding="small" className="delivery-option">
                 <div className="radio-group">
                   <input
@@ -486,6 +614,7 @@ export default function Basket() {
                 </div>
               </Card>
 
+              {/* Free Delivery (slower) */}
               <Card padding="small" className="delivery-option">
                 <div className="radio-group">
                   <input
@@ -505,7 +634,7 @@ export default function Basket() {
             </div>
           </Card>
 
-          {/* Voucher Section */}
+          {/* Voucher Section - promotional code input (non-functional) */}
           <Card className="section-card">
             <label htmlFor="voucher">Enter a gift card, voucher or promotional code</label>
             <div className="voucher-input">
@@ -519,11 +648,12 @@ export default function Basket() {
           </Card>
         </div>
 
-        {/* Order Summary Sidebar */}
+        {/* Order Summary Sidebar - sticky sidebar with price breakdown */}
         <aside className="order-summary">
           <Card>
             <h3>Order Summary</h3>
             <div className="summary-items">
+              {/* Show discount savings if applicable */}
               {calculateTotalDiscount() > 0 && (
                 <>
                   <div className="summary-row">
@@ -536,28 +666,34 @@ export default function Basket() {
                   </div>
                 </>
               )}
+              {/* Subtotal */}
               <div className="summary-row">
                 <span>Subtotal ({cartItems.length} {cartItems.length === 1 ? 'item' : 'items'})</span>
                 <span>€{calculateSubtotal().toFixed(2)}</span>
               </div>
+              {/* Delivery cost */}
               <div className="summary-row">
                 <span>Delivery</span>
                 <span>€{getDeliveryPrice().toFixed(2)}</span>
               </div>
+              {/* Tax (20% VAT) */}
               <div className="summary-row">
                 <span>Tax (VAT 20%)</span>
                 <span>€{calculateTax().toFixed(2)}</span>
               </div>
+              {/* Total */}
               <div className="summary-row summary-total">
                 <strong>Total</strong>
                 <strong>€{calculateTotal().toFixed(2)}</strong>
               </div>
+              {/* Savings badge if discount applied */}
               {calculateTotalDiscount() > 0 && (
                 <div className="savings-badge">
                   You saved €{calculateTotalDiscount().toFixed(2)}!
                 </div>
               )}
             </div>
+            {/* Checkout button - disabled if cart is empty */}
             <button 
               type="submit" 
               className="btn-checkout"
@@ -565,6 +701,7 @@ export default function Basket() {
             >
               Proceed to Payment
             </button>
+            {/* Login reminder if not logged in */}
             {!user && (
               <p className="checkout-note">
                 Please <a href="/login">sign in</a> to complete your purchase.

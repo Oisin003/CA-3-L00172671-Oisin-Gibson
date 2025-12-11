@@ -1,64 +1,91 @@
-//Oisin Gibson - L00172671
-//Card component styles with dark mode support
 
+
+/**
+ * Card Component Styles
+ * Reusable card container with multiple padding options
+ * Supports dark mode and responsive design
+ * Used throughout the application for consistent UI elements
+ */
+
+/* Base card styles - light mode */
 .card {
   background-color: #ffffff;
   border-radius: 8px;
   border: 1px solid #e5e7eb;
+  /* Subtle shadow for depth */
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  /* Smooth transition for hover effects */
   transition: all 0.3s ease;
 }
 
+/* Hover effect - elevate card slightly */
 .card:hover {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
+/* Padding options - allows flexible card sizing */
+
+/* No padding - useful for images or custom content */
 .card-padding-none {
   padding: 0;
 }
 
+/* Small padding - compact cards */
 .card-padding-small {
   padding: 0.75rem;
 }
 
+/* Standard padding - default for most cards */
 .card-padding-standard {
   padding: 1rem;
 }
 
+/* Large padding - spacious cards for important content */
 .card-padding-large {
   padding: 1.5rem;
 }
 
 /* Dark mode styles */
 .dark .card {
+  /* Dark background for dark mode */
   background-color: #1f2937;
+  /* Lighter border in dark mode for contrast */
   border-color: #374151;
 }
 
+/* Darker shadow in dark mode for better visibility */
 .dark .card:hover {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
 }
 
-/* Responsive Design */
+/* Responsive Design - adjust padding for smaller screens */
+
+/* Tablet and below */
 @media (max-width: 768px) {
+  /* Slightly reduce standard padding */
   .card-padding-standard {
     padding: 0.875rem;
   }
   
+  /* Reduce large padding */
   .card-padding-large {
     padding: 1.25rem;
   }
 }
 
+/* Mobile devices */
 @media (max-width: 480px) {
+  /* Compact small padding further */
   .card-padding-small {
     padding: 0.5rem;
   }
   
+  /* Reduce standard padding for mobile */
   .card-padding-standard {
     padding: 0.75rem;
   }
   
+  /* Reduce large padding for mobile */
   .card-padding-large {
     padding: 1rem;
   }

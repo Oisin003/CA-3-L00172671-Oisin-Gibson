@@ -1,81 +1,107 @@
-/* Login container - centers the card */
+/**
+ * Login Component Styles
+ * Styling for the user login form with brown/gold theme
+ * Features card-based layout with gradient header
+ * Includes responsive design for mobile devices
+ */
+
+/* Login container - centers the card on the page */
 .login-container {
   display: flex;
   justify-content: center;
   align-items: center;
+  /* Minimum height to center vertically */
   min-height: 60vh;
   padding: 20px;
 }
 
-/* Login card with shadow and border */
+/* Login card with shadow and border - main form container */
 .login-card {
   background: white;
   border-radius: 8px;
+  /* Shadow for depth */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  /* Gold border for brand consistency */
   border: 2px solid #d4af37;
   max-width: 400px;
   width: 100%;
+  /* Prevents border radius overflow */
   overflow: hidden;
 }
 
-/* Card header with gold background */
+/* Card header with brown gradient background */
 .login-header {
+  /* Brown gradient matching site theme */
   background: linear-gradient(135deg, #3d2817 0%, #2a1810 100%);
   color: #f5f1e8;
   padding: 30px 20px;
   text-align: center;
+  /* Gold bottom border separator */
   border-bottom: 3px solid #d4af37;
 }
 
+/* Header title styling */
 .login-header h2 {
   margin: 0 0 10px 0;
+  /* Gold text for emphasis */
   color: #d4af37;
   font-size: 1.8rem;
 }
 
+/* Header description text */
 .login-header p {
   margin: 0;
+  /* Light cream color for subtitle */
   color: #e8dcc4;
   font-size: 0.95rem;
 }
 
-/* Form styling */
+/* Form styling - main form content area */
 .login-form {
   padding: 30px 25px;
 }
 
+/* Form group - wraps label and input */
 .form-group {
   margin-bottom: 20px;
 }
 
+/* Form labels */
 .form-group label {
   display: block;
   margin-bottom: 8px;
+  /* Dark brown text */
   color: #3d2817;
   font-weight: 600;
   font-size: 0.95rem;
 }
 
+/* Form inputs - text fields */
 .form-group input {
   width: 100%;
   padding: 12px 15px;
+  /* Light border, changes to gold on focus */
   border: 2px solid #e8dcc4;
   border-radius: 6px;
   font-size: 1rem;
+  /* Smooth border transition */
   transition: border-color 0.3s;
+  /* Ensures padding doesn't affect width */
   box-sizing: border-box;
 }
 
+/* Input focus state - gold border highlight */
 .form-group input:focus {
   outline: none;
   border-color: #d4af37;
 }
 
+/* Placeholder text styling */
 .form-group input::placeholder {
   color: #999;
 }
 
-/* Error message */
+/* Error message styling - red theme for errors */
 .error-message {
   background-color: #fee;
   color: #c33;
@@ -86,89 +112,110 @@
   font-size: 0.9rem;
 }
 
-/* Login button */
+/* Login button - gold gradient */
 .login-button {
   width: 100%;
   padding: 14px;
+  /* Gold gradient background */
   background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
+  /* Dark brown text for contrast */
   color: #2a1810;
   border: none;
   border-radius: 6px;
   font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
+  /* Smooth hover effects */
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
+/* Disabled button state - when form is submitting */
 .login-button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+  /* Remove hover effects when disabled */
   transform: none;
 }
 
+/* Button hover effect - lift and shadow */
 .login-button:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(212, 175, 55, 0.3);
 }
 
+/* Button active/pressed state */
 .login-button:active {
   transform: translateY(0);
 }
 
-/* Responsive Design */
+/* Responsive Design - Tablet and below (768px) */
 @media (max-width: 768px) {
+  /* Reduce minimum height on smaller screens */
   .login-container {
     min-height: 50vh;
     padding: 15px;
   }
   
+  /* Full width on tablets */
   .login-card {
     max-width: 100%;
   }
   
+  /* Reduce header padding */
   .login-header {
     padding: 25px 15px;
   }
   
+  /* Smaller heading */
   .login-header h2 {
     font-size: 1.5rem;
   }
   
+  /* Reduce form padding */
   .login-form {
     padding: 25px 20px;
   }
 }
 
+/* Responsive Design - Mobile devices (480px and below) */
 @media (max-width: 480px) {
+  /* Minimal padding on mobile */
   .login-container {
     padding: 10px;
   }
   
+  /* Compact header */
   .login-header {
     padding: 20px 15px;
   }
   
+  /* Smaller heading on mobile */
   .login-header h2 {
     font-size: 1.3rem;
   }
   
+  /* Smaller subtitle text */
   .login-header p {
     font-size: 0.875rem;
   }
   
+  /* Compact form */
   .login-form {
     padding: 20px 15px;
   }
   
+  /* Tighter spacing between fields */
   .form-group {
     margin-bottom: 15px;
   }
   
+  /* Smaller input fields */
   .form-group input {
     padding: 10px 12px;
     font-size: 0.95rem;
   }
   
+  /* Smaller button */
   .login-button {
     padding: 12px;
     font-size: 1rem;
