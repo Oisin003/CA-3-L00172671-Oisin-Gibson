@@ -820,6 +820,18 @@
   color: #d4af37;
 }
 
+.dark .btn-login {
+  background: linear-gradient(135deg, #d4af37 0%, #b8962f 100%);
+  color: #1a0f08;
+  font-weight: 700;
+}
+
+.dark .btn-login:hover {
+  background: linear-gradient(135deg, #e5c158 0%, #d4af37 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
+}
+
 /* Dark mode for confirmation */
 .dark .confirmation-card {
   background-color: #1f2937;

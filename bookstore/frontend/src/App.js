@@ -1,9 +1,19 @@
 //Oisin Gibson - L00172671
 //Main application component for the BookStore application
 
+/**
+ * REFERENCES:
+ * - React Router v6: https://reactrouter.com/en/main/start/tutorial
+ * - BrowserRouter: https://reactrouter.com/en/main/router-components/browser-router
+ * - Routes & Route: https://reactrouter.com/en/main/components/routes
+ * - useNavigate Hook: https://reactrouter.com/en/main/hooks/use-navigate
+ * - React Context: https://react.dev/reference/react/useContext
+ */
+
 import './App.css';
 import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 import { DarkModeProvider } from './context/DarkModeContext';
+import { CurrencyProvider } from './context/CurrencyContext';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Login from './components/Login';
@@ -27,11 +37,13 @@ function App() {
   return (
     // Wrap entire app in DarkModeProvider to enable theme switching
     <DarkModeProvider>
-      {/* BrowserRouter enables client-side routing */}
-      <BrowserRouter>
-        <div className="App">
-        {/* Header component - displayed on all pages */}
-        <Header />
+      {/* Wrap app in CurrencyProvider to enable currency conversion */}
+      <CurrencyProvider>
+        {/* BrowserRouter enables client-side routing */}
+        <BrowserRouter>
+          <div className="App">
+          {/* Header component - displayed on all pages */}
+          <Header />
         {/* Main content area - contains routed page components */}
         <main className="main-content">
           {/* Routes define which component renders for each URL path */}
@@ -54,6 +66,7 @@ function App() {
         <Footer />
         </div>
       </BrowserRouter>
+      </CurrencyProvider>
     </DarkModeProvider>
   );
 }

@@ -1,3 +1,12 @@
+/**
+ * REFERENCES:
+ * - React Hooks: https://react.dev/reference/react
+ * - FileReader API: https://developer.mozilla.org/en-US/docs/Web/API/FileReader
+ * - File API: https://developer.mozilla.org/en-US/docs/Web/API/File
+ * - JSON.parse(): https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse
+ * - Fetch API CRUD: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+ */
+
 // Import required dependencies
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -139,7 +148,7 @@ export default function AdminImport() {
     })
       .then(res => res.json())
       .then(() => {
-        setStatus('✓ Book created successfully');
+        setStatus('Book created successfully');
         resetForm();
         loadBooks();
         setTimeout(() => setStatus(''), 3000);
@@ -199,7 +208,7 @@ export default function AdminImport() {
     })
       .then(res => res.json())
       .then(() => {
-        setStatus('✓ Book deleted successfully');
+        setStatus('Book deleted successfully');
         loadBooks();
         setTimeout(() => setStatus(''), 3000);
       })

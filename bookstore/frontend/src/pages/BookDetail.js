@@ -1,8 +1,18 @@
 // Oisin Gibson - L00172671
 // Book Detail page component
 
+/**
+ * REFERENCES:
+ * - React Hooks: https://react.dev/reference/react
+ * - useParams Hook: https://reactrouter.com/en/main/hooks/use-params
+ * - useNavigate Hook: https://reactrouter.com/en/main/hooks/use-navigate
+ * - localStorage API: https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+ * - Fetch API POST: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#supplying_request_options
+ */
+
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { useCurrency } from '../context/CurrencyContext';
 import Card from '../components/Card';
 import './BookDetail.css';
 
@@ -22,6 +32,8 @@ export default function BookDetail() {
   const { id } = useParams();
   // Hook for programmatic navigation
   const navigate = useNavigate();
+  // Get currency formatting function
+  const { formatPrice } = useCurrency();
   
   // State to store the book details fetched from backend
   const [book, setBook] = useState(null);
@@ -181,7 +193,7 @@ export default function BookDetail() {
         <div className="book-info-grid">
           <div className="info-item">
             <span className="info-label">Price:</span>
-            <span className="info-value">€{book.price.toFixed(2)}</span>
+            <span className="info-value">{formatPrice(book.price)}</span>
           </div>
           <div className="info-item">
             <span className="info-label">In stock:</span>
@@ -207,7 +219,7 @@ export default function BookDetail() {
           </div>
           {/* Spending information and discount status */}
           <div className="spending-info">
-            <p className="spending-amount">Total spent: €{userTotalSpent.toFixed(2)}</p>
+            <p className="spending-amount">Total spent: {formatPrice(userTotalSpent)}</p>
             {/* Show success badge if user qualifies for discount (>€150 spent) */}
             {priceInfo.qualifiesForDiscount ? (
               <div className="discount-badge success">
@@ -219,7 +231,7 @@ export default function BookDetail() {
             ) : (
               /* Show info badge with amount needed to unlock discount */
               <div className="discount-badge info">
-                Spend €{(150 - userTotalSpent).toFixed(2)} more to unlock 5% discount
+                Spend {formatPrice(150 - userTotalSpent)} more to unlock 5% discount
               </div>
             )}
           </div>
@@ -253,19 +265,19 @@ export default function BookDetail() {
               {/* Subtotal row */}
               <div className="price-row">
                 <span>Subtotal:</span>
-                <span>€{priceInfo.subtotal.toFixed(2)}</span>
+                <span>{formatPrice(priceInfo.subtotal)}</span>
               </div>
               {/* Discount row - only shown if discount > 0 */}
               {priceInfo.discount > 0 && (
                 <div className="price-row discount-row">
                   <span>Discount (5%):</span>
-                  <span>-€{priceInfo.discount.toFixed(2)}</span>
+                  <span>-{formatPrice(priceInfo.discount)}</span>
                 </div>
               )}
               {/* Total row with final price */}
               <div className="price-row total-row">
                 <strong>Total:</strong>
-                <strong>€{priceInfo.total.toFixed(2)}</strong>
+                <strong>{formatPrice(priceInfo.total)}</strong>
               </div>
             </div>
           )}

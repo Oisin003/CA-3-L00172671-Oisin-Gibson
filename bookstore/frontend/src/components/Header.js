@@ -1,11 +1,21 @@
 //Oisin Gibson - L00172671
 //Header component for the BookStore application
 
+/**
+ * REFERENCES:
+ * - React Router Link: https://reactrouter.com/en/main/components/link
+ * - useNavigate Hook: https://reactrouter.com/en/main/hooks/use-navigate
+ * - localStorage API: https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+ * - Custom Events: https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent
+ * - Event Listeners: https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
+ */
+
 // Import required dependencies
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Header.css';
 import DarkModeToggle from './DarkModeToggle';
+import CurrencySelector from './CurrencySelector';
 
 /**
  * Header Component
@@ -97,6 +107,9 @@ function Header() {
           
           {/* Dark mode toggle button */}
           <DarkModeToggle />
+          
+          {/* Currency selector dropdown */}
+          <CurrencySelector />
           
           {/* Shopping cart link with cart icon */}
           <Link to="/basket" className="nav-link">

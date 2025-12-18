@@ -1,3 +1,11 @@
+/**
+ * REFERENCES:
+ * - React Forms: https://react.dev/reference/react-dom/components/input
+ * - Controlled Components: https://react.dev/reference/react-dom/components/input#controlling-an-input-with-a-state-variable
+ * - Fetch API POST: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#supplying_request_options
+ * - Form Validation: https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation
+ */
+
 // Import required dependencies
 import React, { useState } from 'react';
 import './Login.css';

@@ -1,8 +1,17 @@
 // Oisin Gibson - L00172671
 // Book List page component
 
+/**
+ * REFERENCES:
+ * - React Hooks (useState, useEffect): https://react.dev/reference/react
+ * - Fetch API: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+ * - React Router Link: https://reactrouter.com/en/main/components/link
+ * - Array.map(): https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+ */
+
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useCurrency } from '../context/CurrencyContext';
 import './BookList.css';
 
 /**
@@ -21,6 +30,8 @@ export default function BookList() {
   const [books, setBooks] = useState([]);
   // State to store the current search input value
   const [search, setSearch] = useState('');
+  // Get currency formatting function
+  const { formatPrice } = useCurrency();
 
   /**
    * Effect: Load all books when component mounts
@@ -125,7 +136,7 @@ export default function BookList() {
             {/* Footer with price and stock info */}
             <div className="book-footer">
               {/* Price - displays 'N/A' if price is null/undefined */}
-              <span className="book-price">€{book.price ? book.price.toFixed(2) : 'N/A'}</span>
+              <span className="book-price">{book.price ? formatPrice(book.price) : 'N/A'}</span>
               {/* Stock status - shows quantity or 'Out of stock' message */}
               <span className="book-stock">
                 {book.numberInStock > 0 

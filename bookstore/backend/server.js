@@ -5,6 +5,12 @@
  * - API route configuration
  * - Auto-import of books from JSON file on startup
  * - CORS and JSON middleware setup
+ * 
+ * REFERENCES:
+ * - Express.js Guide: https://expressjs.com/en/starter/hello-world.html
+ * - Mongoose Connection: https://mongoosejs.com/docs/connections.html
+ * - CORS Middleware: https://www.npmjs.com/package/cors
+ * - dotenv Config: https://www.npmjs.com/package/dotenv
  */
 
 // Import required dependencies

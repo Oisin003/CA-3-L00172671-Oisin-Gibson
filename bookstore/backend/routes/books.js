@@ -1,3 +1,11 @@
+/**
+ * REFERENCES:
+ * - Express Router: https://expressjs.com/en/guide/routing.html
+ * - Mongoose Queries: https://mongoosejs.com/docs/queries.html
+ * - MongoDB Regex: https://www.mongodb.com/docs/manual/reference/operator/query/regex/
+ * - REST API Design: https://restfulapi.net/http-methods/
+ */
+
 // Import required dependencies
 import express from 'express';
 import path from 'path';
@@ -5,6 +13,7 @@ import fs from 'fs/promises';
 import Book from '../models/Book.js';
 
 // Create Express router for book-related endpoints
+// Reference: https://expressjs.com/en/guide/routing.html
 const router = express.Router();
 
 /**

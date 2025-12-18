@@ -1,9 +1,17 @@
 // Oisin Gibson - L00172671
 // Purchase model for MongoDB database - handles cart items and completed purchases
 
+/**
+ * REFERENCES:
+ * - Mongoose Schemas: https://mongoosejs.com/docs/guide.html
+ * - Schema References: https://mongoosejs.com/docs/populate.html
+ * - ObjectId Type: https://mongoosejs.com/docs/schematypes.html#objectids
+ */
+
 import mongoose from 'mongoose';
 
 // Define the schema for Purchase documents
+// Uses references to User and Book models for relational data
 const PurchaseSchema = new mongoose.Schema({
     // Reference to the User who made the purchase
     user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },

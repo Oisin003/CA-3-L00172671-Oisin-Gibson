@@ -1,3 +1,11 @@
+/**
+ * REFERENCES:
+ * - Express Router: https://expressjs.com/en/guide/routing.html
+ * - Mongoose populate: https://mongoosejs.com/docs/populate.html
+ * - MongoDB Transactions: https://www.mongodb.com/docs/manual/core/transactions/
+ * - Shopping Cart Patterns: https://www.patterns.dev/posts/shopping-cart-pattern
+ */
+
 // Import required dependencies
 import express from 'express';
 import Book from '../models/Book.js';
@@ -106,7 +114,7 @@ router.post('/', async (req, res) => {
         // User gets 5% off if their totalSpent is already > €150
         const wasEligible = user.totalSpent > 150;
         const itemTotal = book.price * qty;
-        const discountRate = wasEligible ? 0.05 : 0;
+        const discountRate = wasEligible ? 0.05 : 0;// ? means if true : else
         
         // Calculate final price with discount applied
         // Round to 2 decimal places to avoid floating point errors

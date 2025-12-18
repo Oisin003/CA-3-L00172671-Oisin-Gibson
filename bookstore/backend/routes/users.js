@@ -1,3 +1,11 @@
+/**
+ * REFERENCES:
+ * - Express Router: https://expressjs.com/en/guide/routing.html
+ * - Mongoose findOne: https://mongoosejs.com/docs/api/model.html#Model.findOne()
+ * - HTTP Status Codes: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+ * - Authentication Patterns: https://www.patterns.dev/posts/authentication-pattern
+ */
+
 // Import required dependencies
 import express from 'express';
 import User from '../models/User.js';

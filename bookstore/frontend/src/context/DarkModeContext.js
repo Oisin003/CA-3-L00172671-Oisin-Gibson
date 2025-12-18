@@ -1,6 +1,14 @@
 //Oisin Gibson - L00172671
 //Dark Mode Context for site-wide theme management
 
+/**
+ * REFERENCES:
+ * - React Context API: https://react.dev/reference/react/createContext
+ * - useContext Hook: https://react.dev/reference/react/useContext
+ * - Dark Mode Guide: https://css-tricks.com/a-complete-guide-to-dark-mode-on-the-web/
+ * - localStorage API: https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+ */
+
 // Import required dependencies
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
@@ -8,6 +16,8 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
  * Create Dark Mode Context
  * This context allows dark mode state to be shared across all components
  * without prop drilling (passing props through multiple component levels)
+ * 
+ * Reference: https://react.dev/reference/react/createContext
  */
 const DarkModeContext = createContext();
 
@@ -58,7 +68,7 @@ export function DarkModeProvider({ children }) {
   useEffect(() => {
     // Save current preference to localStorage for persistence
     localStorage.setItem('darkMode', JSON.stringify(isDarkMode));
-    
+
     // Update document root element class for global CSS styling
     // All CSS rules prefixed with .dark will apply when this class is present
     if (isDarkMode) {

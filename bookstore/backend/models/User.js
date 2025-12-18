@@ -1,3 +1,10 @@
+/**
+ * REFERENCES:
+ * - Mongoose Schemas: https://mongoosejs.com/docs/guide.html
+ * - Default Values: https://mongoosejs.com/docs/defaults.html
+ * - Timestamps: https://mongoosejs.com/docs/timestamps.html
+ */
+
 // Import Mongoose library for MongoDB schema and model creation
 import mongoose from 'mongoose';
 

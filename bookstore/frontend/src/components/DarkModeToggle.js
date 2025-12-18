@@ -1,6 +1,13 @@
 //Oisin Gibson - L00172671
 //Dark Mode Toggle component
 
+/**
+ * REFERENCES:
+ * - React Context Hook: https://react.dev/reference/react/useContext
+ * - Button Accessibility: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/button_role
+ * - SVG in React: https://react.dev/learn/writing-markup-with-jsx#converting-html-to-jsx
+ */
+
 // Import required dependencies
 import React from 'react';
 import { useDarkMode } from '../context/DarkModeContext';

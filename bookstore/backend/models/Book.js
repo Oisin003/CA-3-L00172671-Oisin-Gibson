@@ -1,9 +1,17 @@
 // Oisin Gibson - L00172671
 // Book model for MongoDB database
 
+/**
+ * REFERENCES:
+ * - Mongoose Schemas: https://mongoosejs.com/docs/guide.html
+ * - Schema Types: https://mongoosejs.com/docs/schematypes.html
+ * - Mongoose Models: https://mongoosejs.com/docs/models.html
+ */
+
 import mongoose from 'mongoose';
 
 // Define the schema for Book documents
+// Reference: https://mongoosejs.com/docs/guide.html
 const BookSchema = new mongoose.Schema({
     // Book title - required field
     title: { type: String, required: true },

@@ -1,7 +1,17 @@
 //Oisin Gibson - L00172671
 //Basket/Checkout page component
 
+/**
+ * REFERENCES:
+ * - React Hooks: https://react.dev/reference/react
+ * - Form Handling in React: https://react.dev/reference/react-dom/components/input
+ * - Array.reduce(): https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
+ * - localStorage API: https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+ * - Fetch API DELETE: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+ */
+
 import React, { useState, useEffect } from 'react';
+import { useCurrency } from '../context/CurrencyContext';
 import Card from '../components/Card';
 import './Basket.css';
 
@@ -24,6 +34,8 @@ export default function Basket() {
   const [loading, setLoading] = useState(true);
   // Order confirmation data (null until order is placed)
   const [orderConfirmation, setOrderConfirmation] = useState(null);
+  // Get currency formatting function
+  const { formatPrice } = useCurrency();
   // Form data for checkout (delivery and payment info)
   const [formData, setFormData] = useState({
     name: '',
@@ -96,29 +108,40 @@ export default function Basket() {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    // Create unique order number using timestamp
+    // Create unique order number using timestamp (e.g., "ORD-1702392847123")
     const orderNumber = 'ORD-' + Date.now();
+    
+    // Build confirmation object with all order details for display on confirmation page
     const confirmation = {
+      // Unique identifier for this order
       orderNumber,
+      // Current date in localized format (e.g., "12/12/2025")
       date: new Date().toLocaleDateString(),
+      // Current time in localized format (e.g., "14:30:45")
       time: new Date().toLocaleTimeString(),
+      // Array of all purchased items from cart
       items: cartItems,
+      // Customer delivery information object
       deliveryInfo: {
-        name: formData.name,
-        email: formData.email,
-        address: `${formData.city}, ${formData.country}`,
-        phone: formData.phone
+        name: formData.name,           // Customer's full name
+        email: formData.email,         // Customer's email address
+        address: `${formData.city}, ${formData.country}`,  // Combined address string
+        phone: formData.phone          // Customer's phone number
       },
+      // Selected payment method ('credit-card', 'pay-on-delivery', or 'paypal')
       paymentMethod: formData.paymentMethod,
+      // Selected delivery speed ('free', 'standard', or 'express')
       deliveryMethod: formData.deliveryMethod,
-      subtotal: calculateSubtotal(),
-      originalPrice: calculateOriginalPrice(),
-      totalDiscount: calculateTotalDiscount(),
-      delivery: getDeliveryPrice(),
-      tax: calculateTax(),
-      total: calculateTotal()
+      // Price calculations - all values in euros
+      subtotal: calculateSubtotal(),              // Sum of all items after discounts
+      originalPrice: calculateOriginalPrice(),    // Total before any discounts applied
+      totalDiscount: calculateTotalDiscount(),    // Total amount saved from discounts
+      delivery: getDeliveryPrice(),               // Delivery fee (0, 5, or 15 euros)
+      tax: calculateTax(),                        // VAT at 20% of subtotal
+      total: calculateTotal()                     // Final total (subtotal + delivery + tax)
     };
     
+    // Store confirmation data in state to trigger confirmation view
     setOrderConfirmation(confirmation);
     // Scroll to top to show confirmation
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -265,9 +288,9 @@ export default function Basket() {
               <div key={index} className="confirmation-item">
                 <div>
                   <strong>{item.book?.title || 'Book'}</strong>
-                  <p className="item-meta">Quantity: {item.quantity} × €{(item.totalPrice / item.quantity).toFixed(2)}</p>
+                  <p className="item-meta">Quantity: {item.quantity} × {formatPrice(item.totalPrice / item.quantity)}</p>
                 </div>
-                <span className="item-price">€{item.totalPrice.toFixed(2)}</span>
+                <span className="item-price">{formatPrice(item.totalPrice)}</span>
               </div>
             ))}
           </div>
@@ -291,30 +314,30 @@ export default function Basket() {
             {orderConfirmation.totalDiscount > 0 && (
               <div className="summary-row discount-highlight">
                 <span>Original Price:</span>
-                <span>€{orderConfirmation.originalPrice.toFixed(2)}</span>
+                <span>{formatPrice(orderConfirmation.originalPrice)}</span>
               </div>
             )}
             {orderConfirmation.totalDiscount > 0 && (
               <div className="summary-row discount-highlight">
                 <span>Discount (5%):</span>
-                <span className="discount-amount">-€{orderConfirmation.totalDiscount.toFixed(2)}</span>
+                <span className="discount-amount">-{formatPrice(orderConfirmation.totalDiscount)}</span>
               </div>
             )}
             <div className="summary-row">
               <span>Subtotal:</span>
-              <span>€{orderConfirmation.subtotal.toFixed(2)}</span>
+              <span>{formatPrice(orderConfirmation.subtotal)}</span>
             </div>
             <div className="summary-row">
               <span>Delivery:</span>
-              <span>€{orderConfirmation.delivery.toFixed(2)}</span>
+              <span>{formatPrice(orderConfirmation.delivery)}</span>
             </div>
             <div className="summary-row">
               <span>Tax (VAT 20%):</span>
-              <span>€{orderConfirmation.tax.toFixed(2)}</span>
+              <span>{formatPrice(orderConfirmation.tax)}</span>
             </div>
             <div className="summary-row summary-total">
               <strong>Total:</strong>
-              <strong>€{orderConfirmation.total.toFixed(2)}</strong>
+              <strong>{formatPrice(orderConfirmation.total)}</strong>
             </div>
           </div>
 
@@ -402,7 +425,7 @@ export default function Basket() {
                       <h4>{item.book?.title || 'Book Title'}</h4>
                       <p className="cart-item-author">by {item.book?.author || 'Unknown Author'}</p>
                       <p className="cart-item-meta">
-                        Quantity: {item.quantity} × €{(item.totalPrice / item.quantity).toFixed(2)}
+                        Quantity: {item.quantity} × {formatPrice(item.totalPrice / item.quantity)}
                       </p>
                       {/* Show discount badge if discount was applied */}
                       {item.discountApplied > 0 && (
@@ -412,7 +435,7 @@ export default function Basket() {
                       )}
                     </div>
                     <div className="cart-item-actions">
-                      <div className="cart-item-price">€{item.totalPrice.toFixed(2)}</div>
+                      <div className="cart-item-price">{formatPrice(item.totalPrice)}</div>
                       <button 
                         type="button" 
                         onClick={() => removeFromCart(item._id)}
@@ -549,7 +572,7 @@ export default function Basket() {
                   />
                   <div>
                     <label htmlFor="pay-on-delivery">Payment on delivery</label>
-                    <p className="option-description">+€15 payment processing fee</p>
+                    <p className="option-description">+{formatPrice(15)} payment processing fee</p>
                   </div>
                 </div>
               </Card>
@@ -590,7 +613,7 @@ export default function Basket() {
                     onChange={handleInputChange}
                   />
                   <div>
-                    <label htmlFor="standard">€5 - Standard Delivery</label>
+                    <label htmlFor="standard">{formatPrice(5)} - Standard Delivery</label>
                     <p className="option-description">Get it within 3-5 days</p>
                   </div>
                 </div>
@@ -608,7 +631,7 @@ export default function Basket() {
                     onChange={handleInputChange}
                   />
                   <div>
-                    <label htmlFor="express">€15 - Express Delivery</label>
+                    <label htmlFor="express">{formatPrice(15)} - Express Delivery</label>
                     <p className="option-description">Get it by tomorrow</p>
                   </div>
                 </div>
@@ -658,38 +681,38 @@ export default function Basket() {
                 <>
                   <div className="summary-row">
                     <span>Original Price</span>
-                    <span className="strikethrough">€{calculateOriginalPrice().toFixed(2)}</span>
+                    <span className="strikethrough">{formatPrice(calculateOriginalPrice())}</span>
                   </div>
                   <div className="summary-row discount-row">
                     <span>Your Discount (5%)</span>
-                    <span className="discount-amount">-€{calculateTotalDiscount().toFixed(2)}</span>
+                    <span className="discount-amount">-{formatPrice(calculateTotalDiscount())}</span>
                   </div>
                 </>
               )}
               {/* Subtotal */}
               <div className="summary-row">
                 <span>Subtotal ({cartItems.length} {cartItems.length === 1 ? 'item' : 'items'})</span>
-                <span>€{calculateSubtotal().toFixed(2)}</span>
+                <span>{formatPrice(calculateSubtotal())}</span>
               </div>
               {/* Delivery cost */}
               <div className="summary-row">
                 <span>Delivery</span>
-                <span>€{getDeliveryPrice().toFixed(2)}</span>
+                <span>{formatPrice(getDeliveryPrice())}</span>
               </div>
               {/* Tax (20% VAT) */}
               <div className="summary-row">
                 <span>Tax (VAT 20%)</span>
-                <span>€{calculateTax().toFixed(2)}</span>
+                <span>{formatPrice(calculateTax())}</span>
               </div>
               {/* Total */}
               <div className="summary-row summary-total">
                 <strong>Total</strong>
-                <strong>€{calculateTotal().toFixed(2)}</strong>
+                <strong>{formatPrice(calculateTotal())}</strong>
               </div>
               {/* Savings badge if discount applied */}
               {calculateTotalDiscount() > 0 && (
                 <div className="savings-badge">
-                  You saved €{calculateTotalDiscount().toFixed(2)}!
+                  You saved {formatPrice(calculateTotalDiscount())}!
                 </div>
               )}
             </div>
